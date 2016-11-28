@@ -1,0 +1,40 @@
+<div class="navbar">
+    <!-- Open side - Naviation on mobile -->
+    <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up">
+      <i class="material-icons">&#xe5d2;</i>
+    </a>
+    <!-- / -->
+
+    <!-- Page title - Bind to $state's title -->
+    <div class="navbar-item pull-left h5" id="pageTitle">ECAM</div>
+
+    <!-- nabar right -->
+    <ul class="nav navbar-nav pull-right">
+      <li class="nav-item" ng-hide="user">
+        <a href="/auth/google" class="nav-link" ui-sref="app.dashboard" ui-sref-active="active">
+          <span class="nav-text">Login</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown" ng-show="user">
+        <a class="nav-link" ui-fullscreen href="#">
+          <i class="material-icons">&#xe145;</i>
+        </a>
+      </li>
+      <li class="nav-item dropdown" ng-show="user">
+        <a href class="nav-link dropdown-toggle clear" data-toggle="dropdown">
+          <span class="avatar w-32">
+            <img ng-src="{{user.avatar}}" alt="...">
+            <i class="busy b-white right"></i>
+          </span>
+        </a>
+        <div ui-include="'angular/templates/dropdown.user.html'"></div>
+      </li>
+    </ul>
+    <!-- / navbar right -->
+
+    <!-- navbar collapse -->
+    <div class="collapse navbar-toggleable-sm" id="collapse">
+      <div ui-include="'angular/templates/navbar.from.right.html'"></div>
+    </div>
+    <!-- / navbar collapse -->
+</div>
