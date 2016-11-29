@@ -33,6 +33,14 @@ angular.module('app')
       templateUrl: 'angular/templates/ecam/visitor.html',
       controller: 'VisitorController'
     },
+    '/performance/visitor': {
+      templateUrl: 'angular/templates/ecam/performance/visitor.html',
+      controller: 'VisitorPerformanceController'
+    },
+    '/performance/resource': {
+      templateUrl: 'angular/templates/ecam/performance/resource.html',
+      controller: 'ResourcePerformanceController'
+    },
     '/profile': {
       templateUrl: 'angular/templates/profile/profile.html',
       controller: 'ProfileController'

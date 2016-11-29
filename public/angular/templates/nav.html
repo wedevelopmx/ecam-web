@@ -30,4 +30,24 @@
         <span class="nav-text">Estadisticas</span>
       </a>
     </li>
+
+    <li ng-class="{active:$state.includes('app.layout')}" class="active">
+      <a>
+        <span class="nav-icon">
+          <i class="material-icons">&#xe24b;</i>
+        </span>
+        <span class="nav-text">Estadisticas</span>
+      </a>
+      <ul class="nav-sub">
+          <li>
+            <a href="#/performance/visitor"><span class="nav-text">Visitantes</span></a>
+          </li>
+          <li>
+            <a href="#/performance/resource"><span class="nav-text">Recursos</span></a>
+          </li>
+          <li>
+            <a href="#/export"><span class="nav-text">Exportar</span></a>
+          </li>
+        </ul>
+      </li>
   </ul>
