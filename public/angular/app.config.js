@@ -29,6 +29,10 @@ angular.module('app')
     });
     }])
   .constant('policies',{
+    '/': {
+      templateUrl: 'angular/templates/ecam/visitor.html',
+      controller: 'VisitorController'
+    },
     '/profile': {
       templateUrl: 'angular/templates/profile/profile.html',
       controller: 'ProfileController'
