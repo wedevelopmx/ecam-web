@@ -30,7 +30,11 @@ angular.module('app')
     }])
   .constant('policies',{
     '/': {
-      templateUrl: 'angular/templates/ecam/visitor.html',
+      templateUrl: 'angular/templates/ecam/dashboard.html',
+      controller: 'DashboardController'
+    },
+    '/visitor/:id': {
+      templateUrl: 'angular/templates/ecam/visitor/visitor.html',
       controller: 'VisitorController'
     },
     '/performance/visitor': {

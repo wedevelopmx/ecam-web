@@ -40,11 +40,11 @@ router.post('/', function(req, res, next) {
           lastName: req.body.lastName,
         },
         defaults: req.body})
-      .spread(function(user, created) {
-        console.log(user.get({
+      .spread(function(visitor, created) {
+        console.log(visitor.get({
           plain: true
         }))
-        res.json(user);
+        res.json(visitor);
       });
 });
 
