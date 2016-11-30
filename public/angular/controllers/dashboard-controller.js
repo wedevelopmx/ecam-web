@@ -1,11 +1,16 @@
 angular.module('app')
   .controller('DashboardController', ['$scope', 'VisitorService', function($scope, VisitorService) {
     $scope.visitors = [];
+    $scope.today = new Date();
 
     VisitorService.query(function(visitors) {
       console.log(visitors);
       $scope.visitors = visitors;
     });
+
+    $scope.createVisitor = function() {
+      $scope.showForm = true;
+    }
 
     $scope.prepareCamera = function() {
       $scope.camera = 2;
@@ -38,9 +43,12 @@ angular.module('app')
 
     $scope.resetVisitor = function() {
       $scope.visitor = {
-        pictureDataURI: '../assets/images/profile.png'
+        pictureDataURI: '../assets/images/profile.png',
+        status: 'migrante',
+        gender: 'masculino'
       };
       $scope.camera = 1;
+      $scope.showForm = false;
     }
 
     $scope.resetVisitor();

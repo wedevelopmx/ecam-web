@@ -9,3 +9,36 @@
 .profile {
   margin-top: 1rem;
 }
+
+.grid {
+  display: flex;
+  flex-flow: row wrap;
+  .item {
+    width: 33.3%;
+    padding: .3rem;
+    position: relative;
+    display: block;
+  }
+}
+
+.service {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 2px;
+  span {
+    display: block;
+    padding-top: 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: large;
+  }
+}
+
+.information {
+    text-align: center;
+    padding: 5rem 3rem;
+    .btn {
+      max-width: 20rem;
+      margin: 0 auto;
+    }
+}

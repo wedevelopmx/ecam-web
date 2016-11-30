@@ -1,112 +1,11 @@
 <div class="padding">
   <div class="row">
-    <div class="col-sm-6">
-      <div class="box">
-        <div class="item dark">
-          <a href=""><img src="../assets/images/rails.jpg" class="w-full"></a>
-          <div class="bottom gd-overlay p-a-xs">
-            <a href="" class="text-md block p-x-sm">Visitantes</a>
-          </div>
-        </div>
-        <a class="md-btn md-raised md-fab md-mini m-r pos-rlt md-fab-offset pull-right blue">
-          <i class="material-icons md-24">&#xe145;</i>
-        </a>/
-        <div class="p-a">
-          <div class="text-muted m-b-xs">
-            <span class="m-r">Nov 28</span>
-            <a href="" class="m-r"><i class="fa fa-heart-o"></i> 4</a>
-            <a href=""><i class="fa fa-bookmark-o"></i> 20</a>
-          </div>
-          <ul class="list inset m-a-0">
-            <!-- Visitor List-->
-            <li class="list-item" ng-repeat="visitor in visitors">
-              <a ng-href="#/visitor/{{visitor.id}}" class="list-left">
-                <span class="w-64 avatar">
-                  <img ng-src="{{visitor.pictureDataURI}}" alt="..."> <i class="on b-white left"></i>
-                </span>
-              </a>
-              <div class="list-body profile">
-                <div>
-                  <a class="name" href="" ng-cloak>{{visitor.firstName + visitor.lastName}}</a>
-                </div>
-                <small class="location text-muted text-ellipsis" ng-cloak>{{ visitor.country + ', ' + visitor.state }}</small>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <div class="col-sm-12 col-md-6">
+      <div ui-include="'angular/templates/ecam/dashboard/visitor-list.html'"></div>
+      <div ui-include="'angular/templates/ecam/dashboard/visitor-form.html'"></div>
     </div>
+    <div class="col-sm-12 col-md-6 hidden-sm-down">
 
-    <div class="col-sm-6">
-      <div class="box">
-        <div class="item">
-          <div class="item-bg blue">
-            <!-- <img src="../assets/images/profile.png" class="blur"> -->
-          </div>
-          <div class="p-a-lg pos-rlt text-center" ng-show="camera == 1">
-            <span class="img-circle white" style="display: inline-block;" ng-click="prepareCamera()">
-              <i class="material-icons md-48 text-blue" style="margin: 1rem;">&#xe8fc;</i>
-            </span>
-          </div>
-          <div class="pos-rlt text-center black" ng-show="camera == 2">
-            <div id="camera" class="camera"></div>
-            <a class="btn-float md-btn md-raised md-fab md-mini m-r pos-rlt pull-right red" ng-click="takePicture()">
-              <i class="material-icons md-24">&#xe145;</i>
-            </a>
-          </div>
-          <div class="p-a-md pos-rlt text-center" ng-show="camera == 3">
-            <img ng-src="{{visitor.pictureDataURI}}" class="img-circle w-128">
-          </div>
-        </div>
-        <div class="box-body padding">
-          <form ng-submit="submitVisitor()">
-            <div class="form-group row">
-              <label class="col-sm-2 form-control-label">Nombre: </label>
-              <div class="col-sm-10">
-                <input ng-model="visitor.firstName" class="form-control" type="text"/>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 form-control-label">Apellido: </label>
-              <div class="col-sm-10">
-                <input ng-model="visitor.lastName" class="form-control" type="text"/>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 form-control-label">Pais: </label>
-              <div class="col-sm-10">
-                <input ng-model="visitor.country" class="form-control" type="text"/>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 form-control-label">Estado: </label>
-              <div class="col-sm-10">
-                <input ng-model="visitor.state" class="form-control" type="text"/>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 form-control-label">F. de Nac.: </label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" ng-model="visitor.birthdate" placeholder="yyyy-MM-dd" data-date-format="yyyy-MM-dd" data-min-date="01/01/1990" data-max-date="today" data-autoclose="1" name="date" bs-datepicker>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 form-control-label">Estatus: </label>
-              <div class="col-sm-10" style="padding: .6rem;">
-                <label class="md-switch"><input ng-model="visitor.status" type="checkbox" checked="checked"> <i class="blue"></i> Migrante</label>
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-12">
-                <div class="pull-right" style="display: inline-block;">
-                  <button class="btn btn-fw white">Cancel</button>
-                  <button type="submit"  class="btn btn-fw info">Submit</button>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
     </div>
   </div>
 </div>

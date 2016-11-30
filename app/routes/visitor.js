@@ -38,6 +38,7 @@ router.post('/', function(req, res, next) {
         where: {
           firstName: req.body.firstName,
           lastName: req.body.lastName,
+          secondSurename: req.body.secondSurename,
         },
         defaults: req.body})
       .spread(function(visitor, created) {

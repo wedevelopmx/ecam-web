@@ -1,0 +1,44 @@
+<div class="row m-b">
+  <div class="col-xs-4">
+    <small class="text-muted">Nombre</small>
+    <div class="_500" ng-bind="visitor.firstName"></div>
+  </div>
+  <div class="col-xs-4">
+    <small class="text-muted">Apellido Paterno</small>
+    <div class="_500" ng-bind="visitor.lastName"></div>
+  </div>
+  <div class="col-xs-4">
+    <small class="text-muted">Apellido Materno</small>
+    <div class="_500" ng-bind="visitor.secondSurename"></div>
+  </div>
+</div>
+
+<div class="row m-b">
+  <div class="col-xs-4">
+    <small class="text-muted">Pais</small>
+    <div class="_500" ng-bind="visitor.country"></div>
+  </div>
+  <div class="col-xs-4">
+    <small class="text-muted">Estado</small>
+    <div class="_500" ng-bind="visitor.state"></div>
+  </div>
+  <div class="col-xs-4">
+    <small class="text-muted">Municipio</small>
+    <div class="_500" ng-bind="visitor.town"></div>
+  </div>
+</div>
+
+<div class="row m-b">
+  <div class="col-xs-4">
+    <small class="text-muted">Sexo: </small>
+    <div class="_500" ng-bind="visitor.gender"></div>
+  </div>
+  <div class="col-xs-4">
+    <small class="text-muted">F. Nacimiento</small>
+    <div class="_500" ng-bind="visitor.birthdate | date: 'MMM d, yyyy'"></div>
+  </div>
+  <div class="col-xs-4">
+    <small class="text-muted">Status</small>
+    <div class="_500" ng-bind="visitor.status"></div>
+  </div>
+</div>

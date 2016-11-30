@@ -1,0 +1,34 @@
+<div class="box" ng-hide="showForm">
+  <div class="item dark">
+    <a href=""><img src="../assets/images/rails.jpg" class="w-full"></a>
+    <div class="bottom gd-overlay p-a-xs">
+      <a href="" class="text-md block p-x-sm">Visitantes</a>
+    </div>
+  </div>
+  <a class="md-btn md-raised md-fab md-mini m-r pos-rlt md-fab-offset pull-right blue" ng-click="createVisitor()">
+    <i class="material-icons md-24">&#xe145;</i>
+  </a>/
+  <div class="p-a">
+    <div class="text-muted m-b-xs">
+      <span class="m-r">{{today | date : 'MMM d, y'}}</span>
+      <a href="" class="m-r"><i class="fa fa-heart-o"></i> 4</a>
+      <a href=""><i class="fa fa-bookmark-o"></i> 20</a>
+    </div>
+    <ul class="list inset m-a-0">
+      <!-- Visitor List-->
+      <li class="list-item" ng-repeat="visitor in visitors">
+        <a ng-href="#/visitor/{{visitor.id}}" class="list-left">
+          <span class="w-64 avatar">
+            <img ng-src="{{visitor.pictureDataURI}}" alt="..."> <i class="on b-white left"></i>
+          </span>
+        </a>
+        <div class="list-body profile">
+          <div>
+            <a class="name" href="" ng-cloak>{{visitor.firstName + visitor.lastName}}</a>
+          </div>
+          <small class="location text-muted text-ellipsis" ng-cloak><i class="fa fa-map-marker m-r-xs"></i>{{ visitor.country + ', ' + visitor.state }}</small>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

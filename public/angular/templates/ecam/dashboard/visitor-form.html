@@ -1,0 +1,91 @@
+<div class="box" ng-show="showForm">
+  <div class="item">
+    <div class="item-bg blue">
+      <!-- <img src="../assets/images/profile.png" class="blur"> -->
+    </div>
+    <div class="p-a-lg pos-rlt text-center" ng-show="camera == 1">
+      <span class="img-circle white" style="display: inline-block;" ng-click="prepareCamera()">
+        <i class="material-icons md-48 text-blue" style="margin: 1rem;">&#xe8fc;</i>
+      </span>
+    </div>
+    <div class="pos-rlt text-center black" ng-show="camera == 2">
+      <div id="camera" class="camera"></div>
+      <a class="btn-float md-btn md-raised md-fab md-mini m-r pos-rlt pull-right red" ng-click="takePicture()">
+        <i class="material-icons md-24">&#xe145;</i>
+      </a>
+    </div>
+    <div class="p-a-md pos-rlt text-center" ng-show="camera == 3">
+      <img ng-src="{{visitor.pictureDataURI}}" class="img-circle w-128">
+    </div>
+  </div>
+  <div class="box-body padding">
+    <form ng-submit="submitVisitor()">
+      <div class="form-group row">
+        <label class="col-sm-12 col-md-2 form-control-label">Nombre: </label>
+        <div class="col-sm-12 col-md-10">
+          <input ng-model="visitor.firstName" class="form-control" type="text"/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-12 col-md-2 form-control-label">Apellido Paterno: </label>
+        <div class="col-sm-12 col-md-10">
+          <input ng-model="visitor.lastName" class="form-control" type="text"/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-12 col-md-2 form-control-label">Apellido Materno: </label>
+        <div class="col-sm-12 col-md-10">
+          <input ng-model="visitor.secondSurename" class="form-control" type="text"/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-12 col-md-2 form-control-label">Pais: </label>
+        <div class="col-sm-12 col-md-10">
+          <input ng-model="visitor.country" class="form-control" type="text"/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-12 col-md-2 form-control-label">Estado: </label>
+        <div class="col-sm-12 col-md-10">
+          <input ng-model="visitor.state" class="form-control" type="text"/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-12 col-md-2 form-control-label">Municipio: </label>
+        <div class="col-sm-12 col-md-10">
+          <input ng-model="visitor.town" class="form-control" type="text"/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-12 col-md-2 form-control-label">F. de Nac.: </label>
+        <div class="col-sm-12 col-md-10">
+          <input type="text" class="form-control" ng-model="visitor.birthdate" placeholder="yyyy-MM-dd" data-date-format="yyyy-MM-dd" data-min-date="01/01/1917" data-max-date="today" data-autoclose="1" name="date" bs-datepicker>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-12 col-md-2 form-control-label">Sexo: </label>
+        <div class="col-sm-12 col-md-4" style="padding: .6rem;">
+          <select class="form-control" ng-model="visitor.gender">
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+          </select>
+        </div>
+        <label class="col-sm-12 col-md-2 form-control-label">Estatus: </label>
+        <div class="col-sm-12 col-md-4" style="padding: .6rem;">
+          <select class="form-control" ng-model="visitor.status">
+            <option value="migrante">Migrante</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <div class="pull-right" style="display: inline-block;">
+            <button type="button" class="btn btn-fw white" ng-click="resetVisitor()">Cancel</button>
+            <button type="submit"  class="btn btn-fw info">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

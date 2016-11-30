@@ -31,15 +31,16 @@
     <div class="col-sm-6">
       <div class="p-y-md clearfix nav-active-primary">
         <ul class="nav nav-pills nav-sm">
-          <li class="nav-item active"><a class="nav-link" href="" data-toggle="tab" data-target="#tab_1">Visitas</a></li>
-          <li class="nav-item"><a class="nav-link" href="" data-toggle="tab" data-target="#tab_2">Perfil</a></li>
-          <li class="nav-item"><a class="nav-link" href="" data-toggle="tab" data-target="#tab_3">Comentarios</a></li>
+          <li class="nav-item active"><a class="nav-link" href="" data-toggle="tab" data-target="#tab_1">Visita</a></li>
+          <li class="nav-item"><a class="nav-link" href="" data-toggle="tab" data-target="#tab_2">Historial</a></li>
+          <li class="nav-item"><a class="nav-link" href="" data-toggle="tab" data-target="#tab_3">Perfil</a></li>
+          <li class="nav-item"><a class="nav-link" href="" data-toggle="tab" data-target="#tab_4">Comentarios</a></li>
         </ul>
       </div>
     </div>
     <div class="col-sm-6">
       <div class="p-y text-center text-sm-right">
-        <a href="" class="inline p-x text-center"><span class="h4 block m-a-0">3</span> <small class="text-xs text-muted">Visitas</small></a>
+        <a href="" class="inline p-x text-center"><span class="h4 block m-a-0">{{amountOfVisits}}</span> <small class="text-xs text-muted">Visitas</small></a>
         <a href="" class="inline p-x b-l b-r text-center"><span class="h4 block m-a-0">0</span> <small class="text-xs text-muted">Conflictos</small></a>
       </div>
     </div>
@@ -51,12 +52,15 @@
     <div class="col-sm-12">
       <div class="tab-content">
         <div class="tab-pane p-v-sm active" id="tab_1">
-          <div ui-include="'angular/templates/ecam/visitor/visit.html'"></div>
+          <div ui-include="'angular/templates/ecam/visitor/services.html'"></div>
         </div>
         <div class="tab-pane p-v-sm" id="tab_2">
-          <h3>Perfil</h3>
+          <div ui-include="'angular/templates/ecam/visitor/visit.html'"></div>
         </div>
         <div class="tab-pane p-v-sm" id="tab_3">
+          <div ui-include="'angular/templates/ecam/visitor/profile.html'"></div>
+        </div>
+        <div class="tab-pane p-v-sm" id="tab_4">
           <h3>Comentarios</h3>
         </div>
       </div>
