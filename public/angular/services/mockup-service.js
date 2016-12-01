@@ -8,6 +8,7 @@ angular.module('app')
         { name: 'Comida', icon: 'assets/images/icon/cutlery.png'},
         { name: 'Ropería', icon: 'assets/images/icon/briefcase.png'},
         { name: 'Donativos', icon: 'assets/images/icon/donation.png'},
+        { name: 'Lavanderia', icon: 'assets/images/icon/shirt.png'},
         { name: 'Hospedaje', icon: 'assets/images/icon/bed.png'},
         { name: 'Llamada', icon: 'assets/images/icon/phone-call.png'},
         { name: 'Atn. Medica', icon: 'assets/images/icon/stethoscope.png'},

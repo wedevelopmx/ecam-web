@@ -5,6 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     firstName: { type: DataTypes.STRING, name: "first_name" },
     lastName: { type: DataTypes.STRING, name: "last_name"},
     secondSurename: { type: DataTypes.STRING, name: "second_surename"},
+    alias: { type: DataTypes.STRING, name: "alias"},
     gender: { type: DataTypes.STRING, name: "gender" },
     profilePic: { type: DataTypes.STRING, name: "profile_pic"},
     pictureDataURI: { type: DataTypes.STRING, name: "picture_data_uri"},

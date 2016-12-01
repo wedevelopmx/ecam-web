@@ -6,6 +6,8 @@ angular.module('app')
         $scope.visits = MockupService.getHistorical(visitor);
         $scope.todayVisit = MockupService.getTodayVisit(visitor);
         $scope.amountOfVisits = Object.keys($scope.visits).length;
+        var birthdate = new Date($scope.visitor.birthdate);
+        $scope.visitorAge = $scope.today.getFullYear() - birthdate.getFullYear();
       });
 
       $scope.today = new Date();
