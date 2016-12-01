@@ -10,7 +10,7 @@
         <div class="sl-content">
           <div class="sl-date text-muted" ng-bind="visit.date | date: 'MMM d, y'"></div>
           <div>
-            Servcios: <span ng-repeat="service in visit.services | filter: { used: true }">{{service.name}}, </span>
+            Servcios: <span ng-repeat="service in visit.services | filter: { used: 'true' }">{{service.name}}, </span>
           </div>
           <div ng-bind="visit.comment.text" ng-class="{ 'text-danger': visit.comment.conflict }"></div>
         </div>

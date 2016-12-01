@@ -1,5 +1,6 @@
 angular.module('app')
-  .controller('MainController', ['$scope', '$location', 'Auth', function($scope, $location, Auth) {
+  .controller('MainController', ['$scope', '$location', '$sessionStorage', 'Auth', 'VisitorService','MockupService',
+  function($scope, $location, $storage, Auth, VisitorService, MockupService) {
     $scope.app = {
       name: 'Hexagon',
       version: '1.0.0',
@@ -35,4 +36,11 @@ angular.module('app')
 			Auth.logout();
 			$location.url('/');
 		}
+
+    //Quering database visitors and generating demo data
+    $scope.$storage = $storage;
+    VisitorService.query(function(visitors) {
+      $scope.$storage.visitors = visitors;
+      $scope.$storage.vh = MockupService.generateVisitorsHistorical(visitors);
+    });
   }]);

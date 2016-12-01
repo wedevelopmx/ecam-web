@@ -3,9 +3,8 @@ angular.module('app')
   function($scope, $routeParams, VisitorService, MockupService) {
       VisitorService.get({ id: $routeParams.id }, function(visitor) {
         $scope.visitor = visitor;
-        console.log(visitor);
-        MockupService.generatevisitorBackground(visitor);
         $scope.visits = MockupService.getHistorical(visitor);
+        $scope.todayVisit = MockupService.getTodayVisit(visitor);
         $scope.amountOfVisits = Object.keys($scope.visits).length;
       });
 
@@ -16,8 +15,12 @@ angular.module('app')
       }
 
       $scope.createVisit = function() {
-        $scope.services = MockupService.createService($scope.visitor).services;
-        console.log($scope.visits);
+        if($scope.amountOfVisits >= 5) {
+
+        } else {
+          $scope.todayVisit = MockupService.createVisit($scope.visitor);
+          $scope.amountOfVisits = Object.keys($scope.visits).length;
+        }
       }
 
   }]);

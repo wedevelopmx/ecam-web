@@ -1,12 +1,12 @@
 angular.module('app')
-  .controller('DashboardController', ['$scope', 'VisitorService', function($scope, VisitorService) {
-    $scope.visitors = [];
+  .controller('DashboardController', ['$scope', 'VisitorService', 'MockupService', function($scope, VisitorService, MockupService) {
+    // $scope.visitors = [];
     $scope.today = new Date();
 
-    VisitorService.query(function(visitors) {
-      console.log(visitors);
-      $scope.visitors = visitors;
-    });
+    // VisitorService.query(function(visitors) {
+    //   console.log(visitors);
+    //   $scope.visitors = visitors;
+    // });
 
     $scope.createVisitor = function() {
       $scope.showForm = true;
@@ -31,11 +31,10 @@ angular.module('app')
         });
     }
 
-
     $scope.submitVisitor = function() {
-      console.log($scope.visitor);
       VisitorService.save({}, $scope.visitor, function(visitor) {
-        $scope.visitors.push(visitor);
+        $scope.$storage.visitors.push(visitor);
+        MockupService.generateVisitorHistorical(visitor, true);
         $scope.resetVisitor();
         console.log(visitor);
       });

@@ -16,7 +16,7 @@
     </div>
     <ul class="list inset m-a-0">
       <!-- Visitor List-->
-      <li class="list-item" ng-repeat="visitor in visitors">
+      <li class="list-item" ng-repeat="visitor in $storage.visitors">
         <a ng-href="#/visitor/{{visitor.id}}" class="list-left">
           <span class="w-64 avatar">
             <img ng-src="{{visitor.pictureDataURI}}" alt="..."> <i class="on b-white left"></i>

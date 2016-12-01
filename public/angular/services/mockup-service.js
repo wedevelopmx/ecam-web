@@ -1,5 +1,5 @@
 angular.module('app')
-  .factory('MockupService', ['$resource', function($resource) {
+  .factory('MockupService', ['$sessionStorage', function($storage) {
     var Mockup = {
       oneDay: 86400000,
       services: [
@@ -23,51 +23,74 @@ angular.module('app')
         { conflict: true , text: 'pelea en area comun' },
         { conflict: false , text: 'ofrecio disculpas por comportamiento conflicitivo' },
       ],
-      visitors: {},
-      generatevisitorBackground: function(visitor) {
-        this.visitors[visitor.id] = this.generateHistorical();
+      generateVisitorsHistorical: function(visitors) {
+        if($storage.vh == undefined) $storage.vh = {};
+        for(var i = 0; i < visitors.length; i ++) {
+          var visitor = visitors[i];
+          if(! this.hasHistorical(visitor)){
+            console.log('Generating historical for: ' + visitor.firstName + " " + visitor.id);
+            this.generateVisitorHistorical(visitor, false);
+          }
+        }
+        return  $storage.vh;
+      },
+      generateVisitorHistorical: function(visitor, empty) {
+        $storage.vh[visitor.id] = empty ? [] : this.generateHistorical();
       },
       getHistorical: function(visitor) {
-        return this.visitors[visitor.id];
+        return $storage.vh[visitor.id];
+      },
+      hasHistorical: function(visitor) {
+        return $storage.vh.hasOwnProperty(visitor.id);
       },
       generateHistorical: function() {
-        var historical = {};
-        var days = 2 + Math.floor(Math.random() * 3);
+        var historical = [];
+        var days = 2 + Math.floor(Math.random() * 4);
         var now = Date.now() - this.oneDay;
 
         for(var i = 0; i < days; i++) {
-          historical[now] = this.generateVisit(now);
+          historical.push(this.generateVisit(now, false));
           now -= this.oneDay;
         }
         return historical;
       },
-      generateVisit: function(visitDate) {
+      getTodayVisit: function(visitor) {
+        var historical = this.getHistorical(visitor);
+        if(historical == undefined || historical.length <= 0) return null;
+        var now = new Date(Date.now());
+        var latest = new Date(historical[0].date);
+        if(now.getFullYear() == latest.getFullYear() && now.getMonth() == latest.getMonth() && now.getDate() == latest.getDate())
+          return historical[0];
+        return null;
+      },
+      generateVisit: function(visitDate, empty) {
         return {
           date: visitDate,
-          services: this.generateServices(),
-          comment: this.generateComment()
+          services: this.generateServices(empty),
+          comment: empty ? { conflict: false, text: '' } : this.generateComment()
         };
       },
       generateComment: function() {
         var item = Math.floor(Math.random() * this.comments.length);
         return this.comments[item];
       },
-      generateServices: function() {
+      generateServices: function(empty) {
         var services = [];
         for(item in this.services) {
           services.push({
             name: this.services[item].name,
             icon: this.services[item].icon,
-            used: Math.random() > 0.4 ? true : false
+            used: empty ? false : (Math.random() > 0.4 ? true : false)
           });
         }
         return services;
       },
-      createService: function(visitor) {
+      createVisit: function(visitor) {
         var now = Date.now();
         var historical = this.getHistorical(visitor);
-        historical[now] = this.generateVisit(now);
-        return historical[now];
+        var visit = this.generateVisit(now, true);
+        historical.unshift(visit);
+        return visit;
       }
     };
 
