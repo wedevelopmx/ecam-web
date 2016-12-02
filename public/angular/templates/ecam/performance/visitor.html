@@ -1,5 +1,341 @@
-<h1>Visitantes</h1>
+<div class="padding">
+    <h3>Visitantes</h3>
+    <div class="row">
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="box p-a">
+          <div class="pull-left m-r">
+            <span class="w-40 {{app.setting.theme.warn}} text-center rounded">
+              <i class="material-icons">face</i>
+            </span>
+          </div>
+          <div class="clear">
+            <h4 class="m-a-0 text-md"><a href>32 <span class="text-sm">Visitantes</span></a></h4>
+            <small class="text-muted">3 no inmigrantes</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="box-color p-a {{app.setting.theme.warn}}">
+          <div class="pull-left m-r">
+            <span class="m-y-sm inline" ui-jp="sparkline" ui-options="[[2,8],[4,6],[6,4],[8,2],[10,0],[8,2],[6,4],[4,6],[2,8]], {type:'bar', height:24, barWidth:4, barSpacing:2, stackedBarColor:['#fff', 'rgba(255,255,255,0.2)']}"></span>
+          </div>
+          <div class="clear">
+            <h4 class="m-a-0 text-md"><a href>25% <span class="text-sm">Incrementado</span></a></h4>
+            <small class="text-muted">con respecto a la semana pasada</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="box p-a">
+          <div class="pull-left m-r">
+            <span ui-jp="sparkline" ui-refresh="app.setting.color" ui-options="[40,60], {type:'pie', height:36, sliceColors:['{{app.color.light}}','{{app.setting.color.primary}}']}" class="sparkline inline"></span>
+          </div>
+          <div class="clear">
+            <h4 class="m-a-0 text-md"><a href>60% <span class="text-sm">Retorno</span></a></h4>
+            <small class="text-muted">Retorno por 2da vez</small>
+          </div>
+        </div>
+      </div>
+      <br/><br/><br/><br/><br/><br/>
+      <div class="col-sm-6 col-md-4">
+        <div class="box">
+          <div class="box-header">
+            <h3>Visita Semanal</h3>
+            <!--<small>Plenty of options to control</small>-->
+          </div>
+          <div class="box-body">
+            <div ui-jp="plot" ui-refresh="app.setting.color" ui-options="
+              [
+                {
+                  data: {{p_l_2}},
+                  points: { show: true, radius: 5},
+                  splines: { show: true, tension: 0.45, lineWidth: 5}
+                }
+              ],
+              {
+                colors: ['{{app.setting.color.warn}}'],
+                series: { shadowSize: 3 },
+                xaxis: { show: true, font: { color: '#ccc' }, position: 'bottom' },
+                yaxis:{ show: true, font: { color: '#ccc' }, min:3},
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
+                tooltip: true,
+                tooltipOpts: { content: '%x.0 is %y.4',  defaultTheme: false, shifts: { x: 0, y: -40 } }
+              }
+            " style="height:200px" >
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3>Demograficos</h3>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="box">
+          <div class="box-header">
+            <small class="pull-left">Hombres</small><small class="pull-right">Mujeres</small>
+          </div>
+          <div class="box-body text-center">
+            <div class="row-col">
+              <div class="row-cell">
+                <div class="inline">
+                  <div ui-jp="easyPieChart" class="easyPieChart" ui-refresh="app.setting.color" data-redraw='true' data-percent="75" ui-options="{
+                      percent: 75,
+                      lineWidth: 5,
+                      trackColor: 'rgba(0,0,0,0.05)',
+                      barColor: '{{app.setting.color.primary}}',
+                      scaleColor: 'transparent',
+                      size: 75,
+                      scaleLength: 0,
+                      lineCap: 'butt',
+                      animate:{
+                        duration:0,
+                        enabled:false
+                      }
+                    }">
+                    <div>
+                      75%
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row-cell">
+                <div class="inline">
+                  <div ui-jp="easyPieChart" class="easyPieChart" ui-refresh="app.setting.color" data-redraw='true' data-percent="45" ui-options="{
+                      percent: 45,
+                      lineWidth: 5,
+                      trackColor: 'rgba(0,0,0,0.05)',
+                      barColor: '{{app.setting.color.warn}}',
+                      scaleColor: 'transparent',
+                      size: 75,
+                      scaleLength: 0,
+                      lineCap: 'butt',
+                      animate:{
+                        duration:0,
+                        enabled:false
+                      }
+                    }">
+                    <div>
+                      45%
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<ul>
-  <li></li>
-</ul>
+      <div class="col-sm-6 col-md-4">
+        <div class="box">
+          <div class="box-header">
+            <h3>Edades</h3>
+          </div>
+          <div class="box-body">
+            <div ui-jp="plot" ui-refresh="app.setting.color" ui-options="
+              [
+                { data: {{p_b_2}} }
+              ],
+              {
+                bars: { horizontal: true, show: true, fill: true,  barWidth: 0.3, lineWidth: 1, fillColor: { colors: [{ opacity: 0.8 }, { opacity: 1}] }, align: 'center' },
+                colors: ['{{app.setting.color.primary}}'],
+                series: { shadowSize: 3 },
+                xaxis: { show: true, font: { color: '#ccc' }, position: 'bottom' },
+                yaxis:{ show: true, font: { color: '#ccc' }},
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
+                tooltip: true,
+                tooltipOpts: { content: '%x.0 is %y.4',  defaultTheme: false, shifts: { x: 0, y: -40 } }
+              }
+            " style="height:200px" >
+            </div>
+          </div>
+        </div>
+      </div> <!--
+      <div class="col-sm-6 col-md-4">
+        <div class="box">
+          <div class="box-header">
+            <h3>Order Bars</h3>
+            <small>With orders</small>
+          </div>
+          <div class="box-body">
+            <div ui-jp="plot" ui-refresh="app.setting.color" ui-options="
+              [
+                { data: {{p_b_1}} },
+                { data: {{p_b_3}} }
+              ],
+              {
+                bars: { show: true, fill: true,  barWidth: 0.3, lineWidth: 1, order: 1, fillColor: { colors: [{ opacity: 0.5 }, { opacity: 0.9}] }, align: 'center'},
+                colors: ['{{app.setting.color.primary}}','{{app.setting.color.warn}}'],
+                series: { shadowSize: 3 },
+                xaxis: { show: true, font: { color: '#ccc' }, position: 'bottom' },
+                yaxis:{ show: true, font: { color: '#ccc' }},
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
+                tooltip: true,
+                tooltipOpts: { content: '%x.0 is %y.4',  defaultTheme: false, shifts: { x: 0, y: -40 } }
+              }
+            " style="height:200px" >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="box">
+          <div class="box-header">
+            <h3>Pie</h3>
+            <small>Interactive features</small>
+          </div>
+          <div class="box-body">
+            <div ui-jp="plot" ui-refresh="app.setting.color" ui-options="
+              {{p_p_1}},
+              {
+                series: { pie: { show: true, innerRadius: 0.6, stroke: { width: 0 }, label: { show: true, threshold: 0.05 } } },
+                legend: {backgroundColor: 'transparent'},
+                colors: ['{{app.setting.color.primary}}','{{app.setting.color.warn}}'],
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
+                tooltip: true,
+                tooltipOpts: { content: '%s: %p.0%' }
+              }
+            " style="height:200px"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="box">
+          <div class="box-header">
+            <h3>Pie</h3>
+            <small>Full fill</small>
+          </div>
+          <div class="box-body">
+            <div ui-jp="plot" ui-refresh="app.setting.color" ui-options="
+              {{p_p_2}},
+              {
+                series: { pie: { show: true, innerRadius: 0, stroke: { width: 0 }, label: { show: true, threshold: 0.05 } } },
+                legend: {backgroundColor: 'transparent'},
+                colors: ['{{app.setting.color.primary}}','{{app.setting.color.warn}}'],
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
+                tooltip: true,
+                tooltipOpts: { content: '%s: %p.0%' }
+              }
+            " style="height:200px"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="box">
+          <div class="box-header">
+            <h3>Pie with tilt</h3>
+            <small>Interactive features</small>
+          </div>
+          <div class="box-body">
+            <div class="p-y-md">
+              <div ui-jp="plot" ui-refresh="app.setting.color" ui-options="
+                {{p_p_3}},
+                {
+                  series: { pie: { show: true, innerRadius: 0, stroke: { width: 2, color: '#fff' }, label: { show: true, threshold: 0.05 }, tilt: 0.5, startAngle: 30 } },
+                  legend: {backgroundColor: 'transparent'},
+                  colors: ['{{app.setting.color.warn}}','{{app.setting.color.primary}}'],
+                  grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
+                  tooltip: true,
+                  tooltipOpts: { content: '%s: %p.0%' }
+                }
+              " style="height:152px"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="box">
+          <div class="box-header">
+            <h3>Lines</h3>
+            <small>Line with line display</small>
+          </div>
+          <div class="box-body">
+            <div ui-jp="plot" ui-refresh="app.setting.color" ui-options="
+              [
+                {
+                  data: {{p_l_1}},
+                  points: { show: true, radius: 0},
+                  splines: { show: true, tension: 0.45, lineWidth: 2, fill: 0 }
+                },
+                {
+                  data: {{p_l_2}},
+                  points: { show: true, radius: 0},
+                  splines: { show: true, tension: 0.45, lineWidth: 2, fill: 0 }
+                }
+              ],
+              {
+                colors: ['{{app.setting.color.primary}}','{{app.setting.color.warn}}'],
+                series: { shadowSize: 3 },
+                xaxis: { show: true, font: { color: '#ccc' }, position: 'bottom' },
+                yaxis:{ show: true, font: { color: '#ccc' }},
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
+                tooltip: true,
+                tooltipOpts: { content: '%x.0 is %y.4',  defaultTheme: false, shifts: { x: 0, y: -40 } }
+              }
+            " style="height:200px" >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="box">
+          <div class="box-header">
+            <h3>Bars</h3>
+            <small>Bar with bar display</small>
+          </div>
+          <div class="box-body">
+            <div ui-jp="plot" ui-refresh="app.setting.color" ui-options="
+              [
+                {
+                  data: {{p_b_1}},
+                  bars: { show: true, barWidth: 0.25, lineWidth: 1, fillColor: { colors: [{ opacity: 0.8 }, { opacity: 1}] }, order:1 }
+                },
+                {
+                  data: {{p_b_3}},
+                  bars: { show: true, barWidth: 0.25, lineWidth: 1, fillColor: { colors: [{ opacity: 0.8 }, { opacity: 1}] }, order:2 }
+                }
+              ],
+              {
+                colors: ['{{app.setting.color.primary}}','{{app.setting.color.warn}}'],
+                series: { shadowSize: 3 },
+                xaxis: { show: true, font: { color: '#ccc' }, position: 'bottom' },
+                yaxis:{ show: true, font: { color: '#ccc' }},
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
+                tooltip: true,
+                tooltipOpts: { content: '%x.0 is %y.4',  defaultTheme: false, shifts: { x: 0, y: -40 } }
+              }
+            " style="height:200px" >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="box">
+          <div class="box-header">
+            <h3>Line &amp; Bar</h3>
+            <small>Combine line and bar</small>
+          </div>
+          <div class="box-body">
+            <div ui-jp="plot" ui-refresh="app.setting.color" ui-options="
+              [
+                { data: {{p_l_1}},
+                  points: { show: true, radius: 3},
+                  lines: { show: true, lineWidth: 1}
+                },
+                { data: {{p_l_2}},
+                  bars: { show: true, barWidth: 0.4, align: 'center', lineWidth: 1, fillColor: { colors: [{ opacity: 0.6 }, { opacity: 1}] } }
+                }
+              ],
+              {
+                colors: ['{{app.setting.color.warn}}','{{app.setting.color.primary}}'],
+                series: { shadowSize: 3 },
+                xaxis: { show: true, font: { color: '#ccc' }, position: 'bottom' },
+                yaxis:{ show: true, font: { color: '#ccc' }},
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
+                tooltip: true,
+                tooltipOpts: { content: '%x.0 is %y.4',  defaultTheme: false, shifts: { x: 0, y: -40 } }
+              }
+            " style="height:200px" >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  -->
+</div>
