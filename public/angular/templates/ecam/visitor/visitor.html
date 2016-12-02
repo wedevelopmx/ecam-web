@@ -3,22 +3,25 @@
   </div>
   <div class="p-a-md">
     <div class="row m-t">
-      <div class="col-sm-7">
+      <div class="col-sm-11">
         <a href="" class="pull-left m-r-md">
           <span class="avatar w-128">
             <img ng-src="{{visitor.pictureDataURI}}"> <i class="on b-white"></i>
           </span>
         </a>
         <div class="clear m-b">
-          <h3 class="m-a-0 m-b-xs">{{visitor.firstName + " " + visitor.lastName }}</h3>
-          <p class="text-muted"><small><i class="fa fa-map-marker m-r-xs"></i>{{visitor.country + ", " + visitor.state}}</small></p>
+          <h3 class="m-a-0 m-b-xs">{{visitor.firstName + " " + visitor.lastName + " " + visitor.secondSurename  }}</h3>
+          <p class="text-muted" style="font-size: 1rem;">
+            <small><i class="fa fa-map-marker m-r-xs"></i>{{visitor.country + ", " + visitor.state}}</small>
+          </p>
+          <div class="text-xs text-muted"><em>Alias: <strong>{{visitor.alias}}</strong>, Edad: <strong>{{visitorAge}}</strong></em></div>
           <div class="block clearfix m-b">
 
           </div>
           <a href="" class="btn btn-sm warn btn-rounded m-b">Comentario</a>
         </div>
       </div>
-      <div class="col-sm-5">
+      <div class="col-sm-1">
 
       </div>
     </div>
@@ -31,15 +34,16 @@
     <div class="col-sm-6">
       <div class="p-y-md clearfix nav-active-primary">
         <ul class="nav nav-pills nav-sm">
-          <li class="nav-item active"><a class="nav-link" href="" data-toggle="tab" data-target="#tab_1">Visitas</a></li>
-          <li class="nav-item"><a class="nav-link" href="" data-toggle="tab" data-target="#tab_2">Perfil</a></li>
-          <li class="nav-item"><a class="nav-link" href="" data-toggle="tab" data-target="#tab_3">Comentarios</a></li>
+          <li class="nav-item active"><a class="nav-link" href="" data-toggle="tab" data-target="#tab_1">Visita</a></li>
+          <li class="nav-item"><a class="nav-link" href="" data-toggle="tab" data-target="#tab_2">Historial</a></li>
+          <li class="nav-item"><a class="nav-link" href="" data-toggle="tab" data-target="#tab_3">Perfil</a></li>
+          <li class="nav-item"><a class="nav-link" href="" data-toggle="tab" data-target="#tab_4">Comentarios</a></li>
         </ul>
       </div>
     </div>
     <div class="col-sm-6">
       <div class="p-y text-center text-sm-right">
-        <a href="" class="inline p-x text-center"><span class="h4 block m-a-0">3</span> <small class="text-xs text-muted">Visitas</small></a>
+        <a href="" class="inline p-x text-center"><span class="h4 block m-a-0">{{amountOfVisits}}</span> <small class="text-xs text-muted">Visitas</small></a>
         <a href="" class="inline p-x b-l b-r text-center"><span class="h4 block m-a-0">0</span> <small class="text-xs text-muted">Conflictos</small></a>
       </div>
     </div>
@@ -51,12 +55,15 @@
     <div class="col-sm-12">
       <div class="tab-content">
         <div class="tab-pane p-v-sm active" id="tab_1">
-          <div ui-include="'angular/templates/ecam/visitor/visit.html'"></div>
+          <div ui-include="'angular/templates/ecam/visitor/services.html'"></div>
         </div>
         <div class="tab-pane p-v-sm" id="tab_2">
-          <h3>Perfil</h3>
+          <div ui-include="'angular/templates/ecam/visitor/visit.html'"></div>
         </div>
         <div class="tab-pane p-v-sm" id="tab_3">
+          <div ui-include="'angular/templates/ecam/visitor/profile.html'"></div>
+        </div>
+        <div class="tab-pane p-v-sm" id="tab_4">
           <h3>Comentarios</h3>
         </div>
       </div>
