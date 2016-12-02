@@ -1,6 +1,10 @@
 angular.module('app')
-  .factory('MockupService', ['$sessionStorage', function($storage) {
+  .factory('MockupService', ['$sessionStorage', 'ServiceService',  function($storage, ServiceService) {
 
+    ServiceService.query(function(services) {
+      $storage.services = services;
+    });
+    
     // $storage.services = [
     //   { name: 'Entrevista', icon: 'assets/images/icon/talking.png'},
     //   { name: 'REDEDOM', icon: 'assets/images/icon/laptop.png'},
@@ -14,7 +18,6 @@ angular.module('app')
     //   { name: 'Atn. Juridica', icon: 'assets/images/icon/lawyer.png'},
     //   { name: 'Atn. Psicologica', icon: 'assets/images/icon/psi.png'}
     // ];
-
 
     var Mockup = {
       oneDay: 86400000,
@@ -83,7 +86,8 @@ angular.module('app')
         for(item in $storage.services) {
           services.push({
             name: $storage.services[item].name,
-            icon: $storage.services[item].icon,
+            description: $storage.services[item].description,
+            pictureDataURI: $storage.services[item].pictureDataURI,
             used: empty ? false : (Math.random() > 0.4 ? true : false)
           });
         }
