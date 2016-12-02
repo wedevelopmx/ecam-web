@@ -7,4 +7,5 @@ angular.module('app', [
 	'ui.jp',
 	'oc.lazyLoad',
 	'mgcrea.ngStrap',
+	'angularFileUpload'
 ]);

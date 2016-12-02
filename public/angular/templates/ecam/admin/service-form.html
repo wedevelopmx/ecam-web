@@ -1,0 +1,42 @@
+<div class="box" nv-file-drop uploader="uploader">
+  <div class="item">
+    <div class="item-bg blue"></div>
+    <div class="p-a-lg pos-rlt text-center" ng-show="upload == 1" nv-file-over="" uploader="uploader">
+      <span class="img-circle white" style="display: inline-block;" ng-click="prepareCamera()">
+        <i class="material-icons md-48 text-blue" style="margin: 1rem;">&#xe2c3;</i>
+      </span>
+    </div>
+    <div class="p-a-md pos-rlt text-center" ng-show="upload == 2">
+      <img ng-src="{{service.pictureDataURI}}" class="w-128">
+    </div>
+  </div>
+  <div class="box-body">
+    <form ng-submit="submitService()" class="padding">
+      <div class="form-group row">
+        <div class="md-form-group float-label"><input class="md-input" ng-model="service.name" required=""><label>Nombre</label></div>
+      </div>
+      <div class="form-group row">
+        <div class="md-form-group"><textarea class="md-input" ng-model="service.description" rows="4"></textarea><label>Descripcion</label></div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-4">
+          <label class="md-switch"><input type="checkbox" checked="checked"> <i class="blue"></i> Solo migrantes</label>
+        </div>
+        <div class="col-sm-4">
+          <label class="md-switch"><input type="checkbox" checked="checked"> <i class="blue"></i> Solo una vez</label>
+        </div>
+        <div class="col-sm-4">
+          <label class="md-switch"><input type="checkbox" checked="checked"> <i class="blue"></i> Lista</label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <div class="pull-right" style="display: inline-block;">
+            <button type="button" class="btn btn-fw white" ng-click="resetService()">Cancel</button>
+            <button type="submit"  class="btn btn-fw info">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

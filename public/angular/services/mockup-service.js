@@ -1,20 +1,23 @@
 angular.module('app')
   .factory('MockupService', ['$sessionStorage', function($storage) {
+
+    // $storage.services = [
+    //   { name: 'Entrevista', icon: 'assets/images/icon/talking.png'},
+    //   { name: 'REDEDOM', icon: 'assets/images/icon/laptop.png'},
+    //   { name: 'Comida', icon: 'assets/images/icon/cutlery.png'},
+    //   { name: 'Ropería', icon: 'assets/images/icon/briefcase.png'},
+    //   { name: 'Donativos', icon: 'assets/images/icon/donation.png'},
+    //   { name: 'Lavanderia', icon: 'assets/images/icon/shirt.png'},
+    //   { name: 'Hospedaje', icon: 'assets/images/icon/bed.png'},
+    //   { name: 'Llamada', icon: 'assets/images/icon/phone-call.png'},
+    //   { name: 'Atn. Medica', icon: 'assets/images/icon/stethoscope.png'},
+    //   { name: 'Atn. Juridica', icon: 'assets/images/icon/lawyer.png'},
+    //   { name: 'Atn. Psicologica', icon: 'assets/images/icon/psi.png'}
+    // ];
+
+
     var Mockup = {
       oneDay: 86400000,
-      services: [
-        { name: 'Entrevista', icon: 'assets/images/icon/talking.png'},
-        { name: 'REDEDOM', icon: 'assets/images/icon/laptop.png'},
-        { name: 'Comida', icon: 'assets/images/icon/cutlery.png'},
-        { name: 'Ropería', icon: 'assets/images/icon/briefcase.png'},
-        { name: 'Donativos', icon: 'assets/images/icon/donation.png'},
-        { name: 'Lavanderia', icon: 'assets/images/icon/shirt.png'},
-        { name: 'Hospedaje', icon: 'assets/images/icon/bed.png'},
-        { name: 'Llamada', icon: 'assets/images/icon/phone-call.png'},
-        { name: 'Atn. Medica', icon: 'assets/images/icon/stethoscope.png'},
-        { name: 'Atn. Juridica', icon: 'assets/images/icon/lawyer.png'},
-        { name: 'Atn. Psicologica', icon: 'assets/images/icon/psi.png'}
-      ],
       comments: [
         { conflict: false, text: '' }, { conflict: false, text: '' },
         { conflict: false, text: '' }, { conflict: false, text: '' },
@@ -77,10 +80,10 @@ angular.module('app')
       },
       generateServices: function(empty) {
         var services = [];
-        for(item in this.services) {
+        for(item in $storage.services) {
           services.push({
-            name: this.services[item].name,
-            icon: this.services[item].icon,
+            name: $storage.services[item].name,
+            icon: $storage.services[item].icon,
             used: empty ? false : (Math.random() > 0.4 ? true : false)
           });
         }

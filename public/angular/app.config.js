@@ -33,6 +33,10 @@ angular.module('app')
       templateUrl: 'angular/templates/ecam/dashboard.html',
       controller: 'DashboardController'
     },
+    '/admin': {
+      templateUrl: 'angular/templates/ecam/admin/index.html',
+      controller: 'AdminController'
+    },
     '/visitor/:id': {
       templateUrl: 'angular/templates/ecam/visitor/visitor.html',
       controller: 'VisitorController'
