@@ -136,14 +136,14 @@
               name: 'easyPieChart',
               module: false,
               files: [
-                  './custome-libs/jquery.easy-pie-chart/dist/jquery.easypiechart.fill.js'
+                  './angular/custome-libs/jquery.easy-pie-chart/jquery.easypiechart.fill.js'
               ]
           },
           {
               name: 'sparkline',
               module: false,
               files: [
-                  './custome-libs/jquery.sparkline/dist/jquery.sparkline.retina.js'
+                  './angular/custome-libs/jquery.sparkline/jquery.sparkline.retina.js'
               ]
           },
           {
