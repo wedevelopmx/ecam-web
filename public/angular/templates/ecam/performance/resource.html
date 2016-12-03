@@ -1,1 +1,59 @@
-<h1>Resources</h1>
+<h3>Resources</h3>
+<div class="padding">
+    <div class="row">
+
+      <div class="col-sm-6">
+        <div class="box">
+          <div class="box-header">
+            <h3>Servicios</h3>
+            <small class="block text-muted">servicios consumidos</small>
+          </div>
+          <div class="box-body">
+            <div ui-jp="chart" ui-options=" {
+              tooltip : {
+                  trigger: 'axis'
+              },
+              legend: {
+                  orient : 'vertical',
+                  x : 'left',
+                  y : 0,
+                  data:['Promedio','Provistos']
+              },
+              polar : [
+                 {
+                     indicator : [
+                         { text: 'Comida', max: 6000},
+                         { text: 'Legal', max: 16000},
+                         { text: 'Psicologico', max: 30000},
+                         { text: 'Salud', max: 38000},
+                         { text: 'LLamada', max: 52000},
+                         { text: 'Otros', max: 25000}
+                      ]
+                  }
+              ],
+              calculable : true,
+              series : [
+                  {
+                      name: 'Budget vs spending',
+                      type: 'radar',
+                      data : [
+                          {
+                              value : [4300, 10000, 28000, 35000, 50000, 19000],
+                              name : 'Promedio'
+                          },
+                           {
+                              value : [5000, 14000, 28000, 31000, 42000, 21000],
+                              name : 'Provistos'
+                          }
+                      ]
+                  }
+              ]
+            }" style="height:300px" >
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+</div>

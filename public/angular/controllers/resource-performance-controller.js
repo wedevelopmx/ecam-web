@@ -1,4 +1,4 @@
 angular.module('app')
-  .controller('ResourcePerformanceController'['$scope', function($scope) {
+  .controller('ResourcePerformanceController',['$scope', function($scope) {
 
   }]);

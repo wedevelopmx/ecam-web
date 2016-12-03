@@ -204,9 +204,9 @@
               name: 'chart',
               module: false,
               files: [
-                  '../libs/js/echarts/build/dist/echarts-all.js',
-                  '../libs/js/echarts/build/dist/theme.js',
-                  '../libs/js/echarts/build/dist/jquery.echarts.js'
+                  './angular/custome-libs/echarts-all.js',
+                  './angular/custome-libs/theme.js',
+                  './angular/custome-libs/jquery.echarts.js'
               ]
           }
         ]
