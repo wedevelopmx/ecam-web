@@ -1,5 +1,11 @@
-.btn-float {
+.btn-fixed {
   position: fixed;
+  bottom: 2rem;
+  right: 1rem;
+}
+
+.btn-float {
+  position: absolute;
   bottom: 2rem;
   right: 1rem;
 }
