@@ -19,14 +19,30 @@
         <div class="md-form-group"><textarea class="md-input" ng-model="service.description" rows="4"></textarea><label>Descripcion</label></div>
       </div>
       <div class="form-group row">
+        <div class="md-form-group"><textarea class="md-input" ng-model="service.instructions" rows="4" placeholder="Instrucciones que mostraremos al voluntario"></textarea><label>Instrucciones</label></div>
+      </div>
+      <div class="form-group row">
         <div class="col-sm-4">
-          <label class="md-switch"><input type="checkbox" checked="checked"> <i class="blue"></i> Solo migrantes</label>
+          <label class="md-switch"><input type="checkbox" checked="checked" ng-model="service.onlyImmigrant"> <i class="blue"></i> Solo migrantes</label>
         </div>
-        <div class="col-sm-4">
-          <label class="md-switch"><input type="checkbox" checked="checked"> <i class="blue"></i> Solo una vez</label>
+        <div class="col-sm-8">
+          <p>El servicio solo se provee a inmigrantes.</p>
         </div>
+      </div>
+      <div class="form-group row">
         <div class="col-sm-4">
-          <label class="md-switch"><input type="checkbox" checked="checked"> <i class="blue"></i> Lista</label>
+          <label class="md-switch"><input type="checkbox" checked="checked" ng-model="service.oneTime"> <i class="blue"></i> Solo una vez</label>
+        </div>
+        <div class="col-sm-8">
+          <p>El servicio solo se puede proveer una vez por visitante.</p>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-4">
+          <label class="md-switch"><input type="checkbox" checked="checked" ng-model="service.storeList"> <i class="blue"></i> Lista</label>
+        </div>
+        <div class="col-sm-8">
+          <p>Require que el voluntario llene una lista.</p>
         </div>
       </div>
       <div class="form-group row">

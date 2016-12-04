@@ -2,9 +2,11 @@ angular.module('app')
   .factory('MockupService', ['$sessionStorage', 'ServiceService',  function($storage, ServiceService) {
 
     ServiceService.query(function(services) {
-      $storage.services = services;
+      $storage.services = [];
+      for(var i = 0 ; i < services.length; i++)
+        $storage.services.push(services[i]);
     });
-    
+
     // $storage.services = [
     //   { name: 'Entrevista', icon: 'assets/images/icon/talking.png'},
     //   { name: 'REDEDOM', icon: 'assets/images/icon/laptop.png'},

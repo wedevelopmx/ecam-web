@@ -45,9 +45,9 @@ angular.module('app')
 
     $scope.resetService = function() {
       $scope.service = {
-        migrant: false,
+        onlyImmigrant: false,
         oneTime: false,
-        list: false
+        storeList: false
       }
       $scope.showForm = false;
       $scope.upload = 1;

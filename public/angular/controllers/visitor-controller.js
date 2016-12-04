@@ -13,7 +13,6 @@ angular.module('app')
       $scope.today = new Date();
 
       $scope.mark = function(service) {
-        console.log(service);
         service.used = !service.used;
       }
 

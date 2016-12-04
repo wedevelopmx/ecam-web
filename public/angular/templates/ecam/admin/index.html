@@ -3,7 +3,7 @@
     <div ui-include="'angular/templates/ecam/admin/service-form.html'"></div>
   </div>
   <div class="row" ng-hide="showForm" style="position: relative;">
-    <div class="col-sm-12 col-md-4" ng-repeat="service in $storage.services">
+    <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="service in $storage.services">
       <div class="box">
         <div class="item blue" style="padding: 3rem;">
           <a href=""><img ng-src="{{service.pictureDataURI}}" class="w-full"></a>
@@ -11,9 +11,17 @@
         </div>
         <a class="md-btn md-raised md-fab md-mini m-r pos-rlt md-fab-offset pull-right white"><i class="material-icons md-24">&#xe3c9;</i></a>
         <div class="p-a">
-          <div class="text-muted m-b-xs"><span class="m-r">{{service.createdAt | date: 'MMM dd, yyyy'}}</span> <a href="" class="m-r"><i class="fa fa-heart-o"></i> 4</a> <a href=""><i class="fa fa-bookmark-o"></i> 20</a></div>
+          <div class="text-muted m-b-xs">
+            <span class="m-r">{{service.createdAt | date: 'MMM dd, yyyy'}}</span>
+            <a href="" class="m-r" ng-show="service.onlyImmigrant"><i class="fa fa-lock"></i></a>
+            <a href="" class="m-r" ng-show="!service.onlyImmigrant"><i class="fa fa-users"></i></a>
+            <a href="" class="m-r" ng-show="service.oneTime"><i class="fa fa-hand-o-up"></i></a>
+              <a href="" class="m-r" ng-show="!service.oneTime"><i class="fa fa-retweet"></i></a>
+            <a href="" class="m-r" ng-show="service.storeList"><i class="fa fa-list"></i></a>
+            <a href="" class="m-r" ng-show="!service.storeList"><i class="fa fa-align-justify"></i></a>
+          </div>
           <div class="m-b h-2x"><a href="" class="_800">{{service.description}}</a></div>
-          <p class="h-3x">Titudin venenatis ipsum ac feugiat. Vestibulum ullamcorper quam.</p>
+          <p class="h-3x">{{service.instructions}}</p>
         </div>
       </div>
     </div>
