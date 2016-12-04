@@ -1,6 +1,6 @@
 angular.module('app')
-  .controller('MainController', ['$scope', '$location', '$sessionStorage', 'Auth', 'VisitorService','MockupService',
-  function($scope, $location, $storage, Auth, VisitorService, MockupService) {
+  .controller('MainController', ['$scope', '$location', '$sessionStorage', '$route', 'Auth', 'VisitorService','MockupService',
+  function($scope, $location, $storage, $route, Auth, VisitorService, MockupService) {
     $scope.app = {
       name: 'Hexagon',
       version: '1.0.0',
@@ -33,8 +33,12 @@ angular.module('app')
     };
 
     $scope.logout =function() {
-			Auth.logout();
-			$location.url('/');
+			Auth.logout().then(function() {
+        console.log('Success Sign Out');
+        location.reload();
+      }, function() {
+        console.log('there has been an error while sign out');
+      });
 		}
 
     //Quering database visitors and generating demo data

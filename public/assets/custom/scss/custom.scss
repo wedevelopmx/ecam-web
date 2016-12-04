@@ -33,7 +33,7 @@
     font-size: large;
   }
   .lateral {
-    width: 50%; 
+    width: 50%;
   }
 }
 
@@ -44,4 +44,34 @@
       max-width: 20rem;
       margin: 0 auto;
     }
+}
+
+.cover {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(../images/rails.jpg);
+  background-size: cover;
+  height: 100vh;
+  .row {
+    height: inherit;
+    [class*="col-"] {
+      height: inherit;
+    }
+    .blue-bg {
+      background-color: rgba(25, 118, 208, 0.75);
+    }
+  }
+
+  .custom-logo {
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+    span {
+      display: block;
+      color: #ffffff;
+      font-size: 2rem;
+      text-align: center;
+    }
+  }
 }

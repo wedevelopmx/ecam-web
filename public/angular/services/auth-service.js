@@ -94,11 +94,16 @@ angular.module('app')
 
 
     auth.logout = function() {
-        $http.get('/auth/logout').success(function(){
-            console.log('Bye: /auth/logout');
-            delete $sessionStorage.user;
-            delete $rootScope.user;
+      return $q(function(resolve, reject){
+        $http.get('/auth/logout').then(function(){
+          console.log('Bye: /auth/logout');
+          delete $sessionStorage.user;
+          delete $rootScope.user;
+          resolve();
+        }, function() {
+          reject();
         });
+      });
     };
 
     auth.userHasPermission = function(permissions){

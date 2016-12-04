@@ -30,8 +30,13 @@ angular.module('app')
     }])
   .constant('policies',{
     '/': {
-      templateUrl: 'angular/templates/ecam/dashboard.html',
-      controller: 'DashboardController'
+      templateUrl: 'angular/templates/ecam/dashboard/index.html',
+      controller: 'DashboardController',
+      permissions: ['admin']
+    },
+    '/dashboard': {
+      templateUrl: 'angular/templates/ecam/dashboard/index.html',
+      controller: 'DashboardController',
     },
     '/admin': {
       templateUrl: 'angular/templates/ecam/admin/index.html',

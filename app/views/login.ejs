@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title><%= title %></title>
+  <meta name="description" content="Admin, Dashboard, Bootstrap, Bootstrap 4, Angular, AngularJS" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="assets/images/logo.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="assets/images/logo.png">
+
+  <!-- style -->
+  <link rel="stylesheet" href="assets/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="assets/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="assets/material-design-icons/material-design-icons.css" type="text/css" />
+
+  <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <!-- build:css assets/styles/app.min.css -->
+  <link rel="stylesheet" href="assets/styles/app.css" type="text/css" />
+  <link rel="stylesheet" href="assets/styles/custom.css" type="text/css" />
+  <!-- endbuild -->
+  <link rel="stylesheet" href="assets/styles/font.css" type="text/css" />
+</head>
+<body ng-app="app" ng-controller="MainController">
+  <!-- contennt-->
+  <div id="content" class="app-content box-shadow-z0 cover" role="main">
+    <div class="row">
+      <div class="hidden-sm-down col-md-6 col-lg-8">
+
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4 blue-bg">
+        <div class="center-block w-xxl w-auto-xs p-y-md ng-scope">
+          <div class="custom-logo">
+            <img src="../assets/images/logo.png" alt="." class="text-white">
+            <span class="">eCAM</span>
+          </div>
+          <div class="p-a-md box-color r box-shadow-z1 text-color m-a">
+            <div class="m-b text-sm ng-binding">Entra con tu cuenta de Google</div>
+            <form name="form" class="ng-pristine ng-valid">
+              <!-- <div class="md-form-group">
+                <input type="text" class="md-input" required=""><label>Name</label>
+              </div>
+              <div class="md-form-group">
+                <input type="email" class="md-input" required=""><label>Email</label>
+              </div>
+              <div class="md-form-group">
+                <input type="password" class="md-input" required=""><label>Password</label>
+              </div> -->
+              <a href="/auth/google" class="btn btn-rounded btn-danger btn-block p-x-md"><i class="fa fa-google-plus"></i>&nbsp;Sign Up</a>
+              <div class="m-b-md m-t-md">
+                <label class="md-check"><input type="checkbox" required=""><i class="primary"></i> Agree the <a href="">terms and policy</a></label>
+              </div>
+            </form>
+          </div>
+          <div class="p-v-lg text-center">
+            <div class="text-white">Already have an account? <a ui-sref="access.signin" href="#/access/signin" class="text-white _600">Sign in</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- build:js scripts/app.html.js -->
+<!-- jQuery -->
+  <script src="libs/jquery/jquery/dist/jquery.js"></script>
+<!-- Bootstrap -->
+  <script src="libs/jquery/tether/dist/js/tether.min.js"></script>
+  <script src="libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+
+  <!-- Angular -->
+    <script src="libs/angular/angular/angular.js"></script>
+    <script src="libs/angular/angular-animate/angular-animate.js"></script>
+    <script src="libs/angular/angular-route/angular-route.js"></script>
+    <script src="libs/angular/angular-resource/angular-resource.js"></script>
+    <script src="libs/angular/angular-sanitize/angular-sanitize.js"></script>
+    <script src="libs/angular/angular-touch/angular-touch.js"></script>
+
+    <script type="text/javascript" src="libs/jquery/flot/jquery.flot.js"></script>
+    <script type="text/javascript" src="libs/jquery/flot/jquery.flot.pie.js"></script>
+    <!--<script type="text/javascript" src="libs/jquery/flot.tooltip/js/jquery.flot.tooltip.js"></script>-->
+
+    <!-- router -->
+    <script src="libs/angular/angular-ui-router/release/angular-ui-router.js"></script>
+    <!-- storage -->
+    <script src="libs/angular/ngstorage/ngStorage.js"></script>
+    <!-- utils -->
+    <script src="libs/angular/angular-ui-utils/ui-utils.js"></script>
+    <!-- lazyload -->
+    <script src="libs/angular/oclazyload/dist/ocLazyLoad.js"></script>
+
+<!-- core -->
+  <script src="libs/js/underscore/underscore-min.js"></script>
+  <script src="libs/jquery/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+  <script src="libs/jquery/PACE/pace.min.js"></script>
+<!-- endbuild -->
+
+  <link rel="stylesheet" href="assets/angular-motion/dist/angular-motion.min.css" type="text/css" />
+  <link rel="stylesheet" href="assets/bootstrap-additions/dist/bootstrap-additions.min.css" type="text/css" />
+  <script src="libs/angular/angular-strap/dist/angular-strap.js"></script>
+  <script src="libs/angular/angular-strap/dist/angular-strap.tpl.js"></script>
+  <script src="libs/js/webcamjs/webcam.min.js"></script>
+  <script src="libs/angular/angular-file-upload/angular-file-upload.js"></script>
+
+  <!-- Angular -->
+  <script src="angular/app.js"></script>
+  <script src="angular/app.config.js"></script>
+  <script src="angular/services/auth-service.js"></script>
+  <script src="angular/controllers/dashboard-controller.js"></script>
+  <script src="angular/controllers/admin-controller.js"></script>
+  <script src="angular/controllers/visitor-controller.js"></script>
+  <script src="angular/controllers/main-controller.js"></script>
+  <script src="angular/controllers/profile-controller.js"></script>
+  <script src="angular/controllers/settings-controller.js"></script>
+  <script src="angular/controllers/visitor-performance-controller.js"></script>
+  <script src="angular/controllers/resource-performance-controller.js"></script>
+
+  <!-- Charts -->
+   <script src="angular/charts.config.js"></script>
+
+   <!-- Services and directives -->
+  <script src="angular/services/visitor-service.js"></script>
+  <script src="angular/services/service-service.js"></script>
+  <script src="angular/services/mockup-service.js"></script>
+  <script src="angular/services/palette.js"></script>
+  <script src="angular/services/ui-load.js"></script>
+  <script src="angular/directives/ui-jp.js"></script>
+  <script src="angular/directives/ui-include.js"></script>
+  <script src="angular/directives/ui-nav.js"></script>
+  <script src="angular/directives/ui-fullscreen.js"></script>
+  <script src="angular/directives/ui-scroll-to.js"></script>
+  <script src="angular/directives/ui-toggle-class.js"></script>
+</body>
+</html>

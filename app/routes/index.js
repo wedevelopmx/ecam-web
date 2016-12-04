@@ -4,8 +4,12 @@ var models  = require('../models');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	res.render('index', {
-  		title: 'WeDevelop'});
+	if (req.user) {
+			res.render('index', { title: 'eCAM' });
+    } else {
+      //res.redirect('/login');
+			res.render('login', { title: 'eCAM' });
+    }
 });
 
 module.exports = router;
