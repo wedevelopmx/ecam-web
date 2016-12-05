@@ -5,14 +5,14 @@
   <div class="box-body">
     <div class="streamline b-l m-l">
       <!--Visitas-->
-      <div class="sl-item b-success" ng-repeat="visit in visits" ng-class="{'b-success': !visit.comment.conflict, 'b-danger': visit.comment.conflict }">
+      <div class="sl-item" ng-repeat="visit in visits" ng-class="{'b-success': !visit.comment.conflict, 'b-danger': visit.comment.conflict }">
         <div class="sl-icon"><i class="fa" ng-class="{'fa-check': !visit.comment.conflict, 'fa-remove': visit.comment.conflict }"></i></div>
         <div class="sl-content">
           <div class="sl-date text-muted" ng-bind="visit.date | date: 'MMM d, y'"></div>
           <div>
             Servcios: <span ng-repeat="service in visit.services | filter: { used: 'true' }">{{service.name}}, </span>
           </div>
-          <div ng-bind="visit.comment.text" ng-class="{ 'text-danger': visit.comment.conflict }"></div>
+          <!-- <div ng-bind="visit.comment.text" ng-class="{ 'text-danger': visit.comment.conflict }"></div> -->
         </div>
       </div>
     </div>

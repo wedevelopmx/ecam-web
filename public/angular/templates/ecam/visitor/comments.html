@@ -1,0 +1,50 @@
+<ul class="timeline timeline-center" ui-class="timeline-center" ng-show="!newComment">
+  <li class="tl-header">
+    <div class="btn white active" ui-toggle-class="timeline-center" ui-target=".timeline">Comentarios</div>
+  </li>
+  <div ng-repeat="visit in visits">
+  <li class="tl-item" ng-repeat="comment in visit.comments">
+    <div class="tl-wrap b-primary">
+       <span class="tl-date text-muted">{{comment.date | date: 'MMM d, HH:mm'}} hrs</span>
+       <div class="tl-content box-color w-xl w-auto-xs" ng-class="{'warn': comment.conflict }">
+          <span class="arrow b-white left pull-top"></span>
+          <div class="text-lt p-x m-b-sm">{{comment.name}}</div>
+          <div class="p-a b-t b-light">{{comment.description}}</div>
+       </div>
+    </div>
+  </li>
+</div>
+</ul>
+
+<div class="box" ng-show="newComment">
+  <div class="box-header">
+    <h3>Realizar un commentario</h3>
+  </div>
+  <div class="box-body">
+    <form ng-submit="submitComment()" class="padding">
+      <div class="form-group row">
+        <div class="md-form-group float-label"><input class="md-input" ng-model="comment.name" required=""><label>Nombre</label></div>
+      </div>
+      <div class="form-group row">
+        <div class="md-form-group"><textarea class="md-input" ng-model="comment.description" rows="4" placeholder="Que es lo que paso?"></textarea><label>Descripcion</label></div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-4">
+          <label class="md-switch"><input type="checkbox" checked="checked" ng-model="comment.conflict"> <i class="danger"></i> Peligro</label>
+        </div>
+        <div class="col-sm-8">
+          <p>El visitante tuvo un comportmiento que ponga en peligro a otras personas?</p>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <div class="pull-right" style="display: inline-block;">
+            <button type="button" class="btn btn-fw white" ng-click="resetComment()">Cancel</button>
+            <button type="submit"  class="btn btn-fw info">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<button class="md-btn md-fab m-b-sm pink btn-fixed" ng-hide="newComment" ng-click="newComment = !newComment"><i class="material-icons md-24">&#xe145;</i></button>

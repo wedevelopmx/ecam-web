@@ -23,14 +23,13 @@ angular.module('app')
 
     var Mockup = {
       oneDay: 86400000,
+      oneHour: 3600000,
       comments: [
-        { conflict: false, text: '' }, { conflict: false, text: '' },
-        { conflict: false, text: '' }, { conflict: false, text: '' },
-        { conflict: false , text: 'se ofrecio a ayudar en limpieza de cocina' },
-        { conflict: false , text: 'pidio informacion sobre asuntos legales' },
-        { conflict: true , text: 'abuso verbal en comedor' },
-        { conflict: true , text: 'pelea en area comun' },
-        { conflict: false , text: 'ofrecio disculpas por comportamiento conflicitivo' },
+        { conflict: false , name: 'Ofrecio ayuda', description: 'se ofrecio a ayudar en limpieza de cocina' },
+        { conflict: false , name: 'Informacion', description: 'pidio informacion sobre asuntos legales' },
+        { conflict: true , name: 'abuso verbal', description: 'Se hizo de palabras con otro migrante en el comedor' },
+        { conflict: true , name: 'pelea en area comun', description: 'Propicio una pelea en area comun' },
+        { conflict: false , name: 'Disculpa', description: 'ofrecio disculpas por comportamiento conflicitivo' },
       ],
       generateVisitorsHistorical: function(visitors) {
         if($storage.vh == undefined) $storage.vh = {};
@@ -76,8 +75,21 @@ angular.module('app')
         return {
           date: visitDate,
           services: this.generateServices(empty),
+          comments: empty ? [] : this.generateComments(visitDate),
           comment: empty ? { conflict: false, text: '' } : this.generateComment()
         };
+      },
+      generateComments: function(visitDate) {
+        var comments = [];
+        var number = Math.floor(Math.random() * 5);
+        for(var i = 0 ; i < number; i++) {
+          if(Math.random() > 0.5) {
+            var comment = this.generateComment(visitDate);
+            comment.date = visitDate + ((Math.floor(Math.random() * 7) * this.oneHour));
+            comments.push(comment);
+          }
+        }
+        return comments;
       },
       generateComment: function() {
         var item = Math.floor(Math.random() * this.comments.length);

@@ -28,4 +28,17 @@ angular.module('app')
           $scope.amountOfVisits = Object.keys($scope.visits).length;
         }
       }
+
+      $scope.submitComment = function() {
+        console.log($scope.todayVisit);
+        $scope.todayVisit.comments.push($scope.comment);
+        $scope.resetComment();
+      }
+
+      $scope.resetComment = function() {
+        $scope.newComment = false;
+        $scope.comment = {};
+      }
+
+      $scope.resetComment();
   }]);
