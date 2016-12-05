@@ -43,7 +43,7 @@ angular.module('app')
       controller: 'AdminController'
     },
     '/visitor/:id': {
-      templateUrl: 'angular/templates/ecam/visitor/visitor.html',
+      templateUrl: 'angular/templates/ecam/visitor/index.html',
       controller: 'VisitorController'
     },
     '/performance/visitor': {
