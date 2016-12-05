@@ -5,6 +5,37 @@
       <div ui-include="'angular/templates/ecam/dashboard/visitor-form.html'"></div>
     </div>
     <div class="col-sm-12 col-md-6 hidden-sm-down">
+      <div class="box p-a">
+        <div class="pull-left m-r">
+          <span class="w-40 {{app.setting.theme.warn}} text-center rounded">
+            <i class="material-icons">face</i>
+          </span>
+        </div>
+        <div class="clear">
+          <h4 class="m-a-0 text-md"><a href>32 <span class="text-sm">Visitantes</span></a></h4>
+          <small class="text-muted">5 no inmigrantes</small>
+        </div>
+      </div>
+
+      <div class="box-color p-a {{app.setting.theme.warn}}">
+        <div class="pull-left m-r">
+          <span class="m-y-sm inline" ui-jp="sparkline" ui-options="[[2,8],[4,6],[6,4],[8,2],[10,0],[8,2],[6,4],[4,6],[2,8]], {type:'bar', height:24, barWidth:4, barSpacing:2, stackedBarColor:['#fff', 'rgba(255,255,255,0.2)']}"></span>
+        </div>
+        <div class="clear">
+          <h4 class="m-a-0 text-md"><a href>25% <span class="text-sm">Incrementado</span></a></h4>
+          <small class="text-muted">con respecto a la semana pasada</small>
+        </div>
+      </div>
+
+      <div class="box p-a">
+        <div class="pull-left m-r">
+          <span ui-jp="sparkline" ui-refresh="app.setting.color" ui-options="[40,60], {type:'pie', height:36, sliceColors:['{{app.color.light}}','{{app.setting.color.primary}}']}" class="sparkline inline"></span>
+        </div>
+        <div class="clear">
+          <h4 class="m-a-0 text-md"><a href>60% <span class="text-sm">Retorno</span></a></h4>
+          <small class="text-muted">Retorno por 2da vez</small>
+        </div>
+      </div>
 
     </div>
   </div>
