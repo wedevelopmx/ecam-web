@@ -37,7 +37,9 @@ angular.module('app')
 
       $scope.resetComment = function() {
         $scope.newComment = false;
-        $scope.comment = {};
+        $scope.comment = {
+          date: new Date()
+        };
       }
 
       $scope.resetComment();
