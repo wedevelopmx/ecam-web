@@ -1,7 +1,7 @@
 <div class="padding">
-    <h3>Visitantes</h3>
+    <h5>Visitantes</h5>
     <div class="row">
-      <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="col-sm-6 col-md-4 col-lg-4">
         <div class="box p-a">
           <div class="pull-left m-r">
             <span class="w-40 {{app.setting.theme.warn}} text-center rounded">
@@ -10,11 +10,11 @@
           </div>
           <div class="clear">
             <h4 class="m-a-0 text-md"><a href>32 <span class="text-sm">Visitantes</span></a></h4>
-            <small class="text-muted">3 no inmigrantes</small>
+            <small class="text-muted">5 no inmigrantes</small>
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="col-sm-6 col-md-4 col-lg-4">
         <div class="box-color p-a {{app.setting.theme.warn}}">
           <div class="pull-left m-r">
             <span class="m-y-sm inline" ui-jp="sparkline" ui-options="[[2,8],[4,6],[6,4],[8,2],[10,0],[8,2],[6,4],[4,6],[2,8]], {type:'bar', height:24, barWidth:4, barSpacing:2, stackedBarColor:['#fff', 'rgba(255,255,255,0.2)']}"></span>
@@ -25,7 +25,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="col-sm-6 col-md-4 col-lg-4">
         <div class="box p-a">
           <div class="pull-left m-r">
             <span ui-jp="sparkline" ui-refresh="app.setting.color" ui-options="[40,60], {type:'pie', height:36, sliceColors:['{{app.color.light}}','{{app.setting.color.primary}}']}" class="sparkline inline"></span>
@@ -36,40 +36,127 @@
           </div>
         </div>
       </div>
-      <br/><br/><br/><br/><br/><br/>
-      <div class="col-sm-6 col-md-4">
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-8">
         <div class="box">
           <div class="box-header">
-            <h3>Visita Semanal</h3>
-            <!--<small>Plenty of options to control</small>-->
+            <h3>Visitas</h3>
+            <small class="block text-muted">Estas son las visitas de esta semana</small>
           </div>
           <div class="box-body">
-            <div ui-jp="plot" ui-refresh="app.setting.color" ui-options="
-              [
-                {
-                  data: {{p_l_2}},
-                  points: { show: true, radius: 5},
-                  splines: { show: true, tension: 0.45, lineWidth: 5}
-                }
+            <div ui-jp="chart" ui-options=" {
+              tooltip : {
+                  trigger: 'axis'
+              },
+              legend: {
+                  data:['Promedio','Esta semana']
+              },
+              calculable : true,
+              xAxis : [
+                  {
+                      type : 'category',
+                      boundaryGap : false,
+                      data : ['Lun','Mar','Mier','Ju','Vi','Sab','Dom']
+                  }
               ],
-              {
-                colors: ['{{app.setting.color.warn}}'],
-                series: { shadowSize: 3 },
-                xaxis: { show: true, font: { color: '#ccc' }, position: 'bottom' },
-                yaxis:{ show: true, font: { color: '#ccc' }, min:3},
-                grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
-                tooltip: true,
-                tooltipOpts: { content: '%x.0 is %y.4',  defaultTheme: false, shifts: { x: 0, y: -40 } }
-              }
-            " style="height:200px" >
+              yAxis : [
+                  {
+                      type : 'value',
+                      axisLabel : {
+                          formatter: '{value}'
+                      }
+                  }
+              ],
+              series : [
+                  {
+                      name:'Promedio',
+                      type:'line',
+                      data:[7, 6, 15, 13, 10, 17, 10],
+                      markPoint : {
+                          data : [
+                              {type : 'max', name: 'Max'},
+                              {type : 'min', name: 'Min'}
+                          ]
+                      },
+                      markLine : {
+                          data : [
+                              {type : 'average', name: 'Average'}
+                          ]
+                      }
+                  },
+                  {
+                      name:'Esta semana',
+                      type:'line',
+                      data:[1, 5, 2, 5, 3, 7, 0],
+                      markPoint : {
+                          data : [
+                            {type : 'max', name: 'Max'},
+                            {type : 'min', name: 'Min'}
+                          ]
+                      },
+                      markLine : {
+                          data : [
+                              {type : 'average', name : 'Average'}
+                          ]
+                      }
+                  }
+              ]
+            }" style="height:400px" >
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="box-header">
+            <h3>Lugar de procedencia</h3>
+            <small class="block text-muted">Desde aqui vienen nuestros inmigrantes</small>
+          </div>
+          <div class="box-body">
+            <div ui-jp="chart" ui-options="{
+                tooltip : {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data:['Actual', 'Promedio']
+                },
+                calculable : true,
+                grid : {
+                  x: 60
+                },
+                xAxis : [
+                    {
+                        type : 'value',
+                        boundaryGap : [0, 0.01]
+                    }
+                ],
+                yAxis : [
+                    {
+                        type : 'category',
+                        data : ['El Salvador','Honduras','Peru','Haiti','Guatemala','Mexico']
+                    }
+                ],
+                series : [
+                    {
+                        name:'Noviembre',
+                        type:'bar',
+                        data:[182, 234, 290, 1049, 1317, 1517]
+                    },
+                    {
+                        name:'Promedio',
+                        type:'bar',
+                        data:[193, 234, 310, 1215, 1341, 1517]
+                    }
+                ]
+            }" style="height:300px" >
             </div>
           </div>
         </div>
       </div>
-      <h3>Demograficos</h3>
-      <div class="col-sm-6 col-md-4 col-lg-3">
+
+      <div class="col-sm-12 col-md-4">
         <div class="box">
           <div class="box-header">
+            <h3>Sexo</h3>
             <small class="pull-left">Hombres</small><small class="pull-right">Mujeres</small>
           </div>
           <div class="box-body text-center">
@@ -79,10 +166,10 @@
                   <div ui-jp="easyPieChart" class="easyPieChart" ui-refresh="app.setting.color" data-redraw='true' data-percent="75" ui-options="{
                       percent: 75,
                       lineWidth: 5,
-                      trackColor: 'rgba(0,0,0,0.05)',
+                      trackColor: 'rgba(25, 118, 208, 0.5)',
                       barColor: '{{app.setting.color.primary}}',
                       scaleColor: 'transparent',
-                      size: 75,
+                      size: 65,
                       scaleLength: 0,
                       lineCap: 'butt',
                       animate:{
@@ -99,9 +186,9 @@
               <div class="row-cell">
                 <div class="inline">
                   <div ui-jp="easyPieChart" class="easyPieChart" ui-refresh="app.setting.color" data-redraw='true' data-percent="45" ui-options="{
-                      percent: 45,
+                      percent: 35,
                       lineWidth: 5,
-                      trackColor: 'rgba(0,0,0,0.05)',
+                      trackColor: 'rgba(255,105,180, 0.5)',
                       barColor: '{{app.setting.color.warn}}',
                       scaleColor: 'transparent',
                       size: 75,
@@ -121,9 +208,6 @@
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
         <div class="box">
           <div class="box-header">
             <h3>Edades</h3>
@@ -134,208 +218,156 @@
                 { data: {{p_b_2}} }
               ],
               {
-                bars: { horizontal: true, show: true, fill: true,  barWidth: 0.3, lineWidth: 1, fillColor: { colors: [{ opacity: 0.8 }, { opacity: 1}] }, align: 'center' },
+                bars: { horizontal: true, show: true, fill: true,  barWidth: 0.7, lineWidth: 1, fillColor: { colors: [{ opacity: 0.8 }, { opacity: 1}] }, align: 'center' },
                 colors: ['{{app.setting.color.primary}}'],
                 series: { shadowSize: 3 },
                 xaxis: { show: true, font: { color: '#ccc' }, position: 'bottom' },
                 yaxis:{ show: true, font: { color: '#ccc' }},
                 grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
                 tooltip: true,
-                tooltipOpts: { content: '%x.0 is %y.4',  defaultTheme: false, shifts: { x: 0, y: -40 } }
+                tooltipOpts: { content: '%x.0 personas con %y años',  defaultTheme: false, shifts: { x: 0, y: -40 } }
               }
             " style="height:200px" >
             </div>
           </div>
         </div>
-      </div> <!--
-      <div class="col-sm-6 col-md-4">
         <div class="box">
           <div class="box-header">
-            <h3>Order Bars</h3>
-            <small>With orders</small>
+            <h3>Grupos</h3>
+            <small class="block text-muted">Estos son los grupos que nos visitan</small>
           </div>
-          <div class="box-body">
-            <div ui-jp="plot" ui-refresh="app.setting.color" ui-options="
-              [
-                { data: {{p_b_1}} },
-                { data: {{p_b_3}} }
-              ],
-              {
-                bars: { show: true, fill: true,  barWidth: 0.3, lineWidth: 1, order: 1, fillColor: { colors: [{ opacity: 0.5 }, { opacity: 0.9}] }, align: 'center'},
-                colors: ['{{app.setting.color.primary}}','{{app.setting.color.warn}}'],
-                series: { shadowSize: 3 },
-                xaxis: { show: true, font: { color: '#ccc' }, position: 'bottom' },
-                yaxis:{ show: true, font: { color: '#ccc' }},
-                grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
-                tooltip: true,
-                tooltipOpts: { content: '%x.0 is %y.4',  defaultTheme: false, shifts: { x: 0, y: -40 } }
-              }
-            " style="height:200px" >
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="box">
-          <div class="box-header">
-            <h3>Pie</h3>
-            <small>Interactive features</small>
-          </div>
-          <div class="box-body">
-            <div ui-jp="plot" ui-refresh="app.setting.color" ui-options="
-              {{p_p_1}},
-              {
-                series: { pie: { show: true, innerRadius: 0.6, stroke: { width: 0 }, label: { show: true, threshold: 0.05 } } },
-                legend: {backgroundColor: 'transparent'},
-                colors: ['{{app.setting.color.primary}}','{{app.setting.color.warn}}'],
-                grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
-                tooltip: true,
-                tooltipOpts: { content: '%s: %p.0%' }
-              }
-            " style="height:200px"></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="box">
-          <div class="box-header">
-            <h3>Pie</h3>
-            <small>Full fill</small>
-          </div>
-          <div class="box-body">
-            <div ui-jp="plot" ui-refresh="app.setting.color" ui-options="
-              {{p_p_2}},
-              {
-                series: { pie: { show: true, innerRadius: 0, stroke: { width: 0 }, label: { show: true, threshold: 0.05 } } },
-                legend: {backgroundColor: 'transparent'},
-                colors: ['{{app.setting.color.primary}}','{{app.setting.color.warn}}'],
-                grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
-                tooltip: true,
-                tooltipOpts: { content: '%s: %p.0%' }
-              }
-            " style="height:200px"></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="box">
-          <div class="box-header">
-            <h3>Pie with tilt</h3>
-            <small>Interactive features</small>
-          </div>
-          <div class="box-body">
-            <div class="p-y-md">
-              <div ui-jp="plot" ui-refresh="app.setting.color" ui-options="
-                {{p_p_3}},
-                {
-                  series: { pie: { show: true, innerRadius: 0, stroke: { width: 2, color: '#fff' }, label: { show: true, threshold: 0.05 }, tilt: 0.5, startAngle: 30 } },
-                  legend: {backgroundColor: 'transparent'},
-                  colors: ['{{app.setting.color.warn}}','{{app.setting.color.primary}}'],
-                  grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
-                  tooltip: true,
-                  tooltipOpts: { content: '%s: %p.0%' }
-                }
-              " style="height:152px"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="box">
-          <div class="box-header">
-            <h3>Lines</h3>
-            <small>Line with line display</small>
-          </div>
-          <div class="box-body">
-            <div ui-jp="plot" ui-refresh="app.setting.color" ui-options="
-              [
-                {
-                  data: {{p_l_1}},
-                  points: { show: true, radius: 0},
-                  splines: { show: true, tension: 0.45, lineWidth: 2, fill: 0 }
+          <div class="box-body" id="pie">
+            <div ui-jp="chart" ui-options="{
+                title: {
+                    text: 'A que grupos atendemos？',
+                    subtext: 'nuestra entrevistas',
+                    x: 'center',
+                    y: 'center',
+                    itemGap: 20,
+                    textStyle : {
+                        color : 'rgba(30,144,255,0.8)',
+                        fontSize : 20,
+                        fontWeight : 'bolder'
+                    }
                 },
-                {
-                  data: {{p_l_2}},
-                  points: { show: true, radius: 0},
-                  splines: { show: true, tension: 0.45, lineWidth: 2, fill: 0 }
-                }
-              ],
-              {
-                colors: ['{{app.setting.color.primary}}','{{app.setting.color.warn}}'],
-                series: { shadowSize: 3 },
-                xaxis: { show: true, font: { color: '#ccc' }, position: 'bottom' },
-                yaxis:{ show: true, font: { color: '#ccc' }},
-                grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
-                tooltip: true,
-                tooltipOpts: { content: '%x.0 is %y.4',  defaultTheme: false, shifts: { x: 0, y: -40 } }
-              }
-            " style="height:200px" >
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="box">
-          <div class="box-header">
-            <h3>Bars</h3>
-            <small>Bar with bar display</small>
-          </div>
-          <div class="box-body">
-            <div ui-jp="plot" ui-refresh="app.setting.color" ui-options="
-              [
-                {
-                  data: {{p_b_1}},
-                  bars: { show: true, barWidth: 0.25, lineWidth: 1, fillColor: { colors: [{ opacity: 0.8 }, { opacity: 1}] }, order:1 }
+                tooltip : {
+                    show: true,
+                    formatter: '{a} <br/>{b} : {c} ({d}%)'
                 },
-                {
-                  data: {{p_b_3}},
-                  bars: { show: true, barWidth: 0.25, lineWidth: 1, fillColor: { colors: [{ opacity: 0.8 }, { opacity: 1}] }, order:2 }
-                }
-              ],
-              {
-                colors: ['{{app.setting.color.primary}}','{{app.setting.color.warn}}'],
-                series: { shadowSize: 3 },
-                xaxis: { show: true, font: { color: '#ccc' }, position: 'bottom' },
-                yaxis:{ show: true, font: { color: '#ccc' }},
-                grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
-                tooltip: true,
-                tooltipOpts: { content: '%x.0 is %y.4',  defaultTheme: false, shifts: { x: 0, y: -40 } }
-              }
-            " style="height:200px" >
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="box">
-          <div class="box-header">
-            <h3>Line &amp; Bar</h3>
-            <small>Combine line and bar</small>
-          </div>
-          <div class="box-body">
-            <div ui-jp="plot" ui-refresh="app.setting.color" ui-options="
-              [
-                { data: {{p_l_1}},
-                  points: { show: true, radius: 3},
-                  lines: { show: true, lineWidth: 1}
+                legend: {
+                    orient : 'vertical',
+                    x : $('#pie').width()/2 + 10,
+                    y : 25,
+                    itemGap:12,
+                    data:['68% Migrante','29% Calle','3% Otros']
                 },
-                { data: {{p_l_2}},
-                  bars: { show: true, barWidth: 0.4, align: 'center', lineWidth: 1, fillColor: { colors: [{ opacity: 0.6 }, { opacity: 1}] } }
-                }
-              ],
-              {
-                colors: ['{{app.setting.color.warn}}','{{app.setting.color.primary}}'],
-                series: { shadowSize: 3 },
-                xaxis: { show: true, font: { color: '#ccc' }, position: 'bottom' },
-                yaxis:{ show: true, font: { color: '#ccc' }},
-                grid: { hoverable: true, clickable: true, borderWidth: 0, color: 'rgba(120,120,120,0.5)' },
-                tooltip: true,
-                tooltipOpts: { content: '%x.0 is %y.4',  defaultTheme: false, shifts: { x: 0, y: -40 } }
-              }
-            " style="height:200px" >
+                series : [
+                    {
+                        name:'1',
+                        type:'pie',
+                        clockWise:false,
+                        radius : [105, 130],
+                        itemStyle : {
+                           normal: {
+                              label: {show:false},
+                              labelLine: {show:false}
+                          }
+                        },
+                        data:[
+                            {
+                                value:68,
+                                name:'68% Migrante'
+                            },
+                            {
+                                value:32,
+                                name:'invisible',
+                                itemStyle : {
+                                    normal : {
+                                        color: 'rgba(0,0,0,0)',
+                                        label: {show:false},
+                                        labelLine: {show:false}
+                                    },
+                                    emphasis : {
+                                        color: 'rgba(0,0,0,0)'
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        name:'2',
+                        type:'pie',
+                        clockWise:false,
+                        radius : [80, 105],
+                        itemStyle : {
+                           normal: {
+                              label: {show:false},
+                              labelLine: {show:false}
+                          }
+                        },
+                        data:[
+                            {
+                                value:29,
+                                name:'29% Persona de la calle'
+                            },
+                            {
+                                value:71,
+                                name:'invisible',
+                                itemStyle : {
+                                    normal : {
+                                        color: 'rgba(0,0,0,0)',
+                                        label: {show:false},
+                                        labelLine: {show:false}
+                                    },
+                                    emphasis : {
+                                        color: 'rgba(0,0,0,0)'
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        name:'3',
+                        type:'pie',
+                        clockWise:false,
+                        radius : [55, 80],
+                        itemStyle : {
+                           normal: {
+                              label: {show:false},
+                              labelLine: {show:false}
+                          }
+                        },
+                        data:[
+                            {
+                                value:3,
+                                name:'3% Otros'
+                            },
+                            {
+                                value:97,
+                                name:'invisible',
+                                itemStyle : {
+                                    normal : {
+                                        color: 'rgba(0,0,0,0)',
+                                        label: {show:false},
+                                        labelLine: {show:false}
+                                    },
+                                    emphasis : {
+                                        color: 'rgba(0,0,0,0)'
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }" style="height:300px" >
             </div>
           </div>
         </div>
       </div>
-    </div>  -->
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-8">
+
+      </div>
+    </div>
 </div>
