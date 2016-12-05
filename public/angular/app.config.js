@@ -54,6 +54,10 @@ angular.module('app')
       templateUrl: 'angular/templates/ecam/performance/resource.html',
       controller: 'ResourcePerformanceController'
     },
+    '/export': {
+      templateUrl: 'angular/templates/ecam/performance/export.html',
+      controller: 'ExportController'
+    },
     '/profile': {
       templateUrl: 'angular/templates/profile/profile.html',
       controller: 'ProfileController'

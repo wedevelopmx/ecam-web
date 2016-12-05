@@ -1,0 +1,64 @@
+<div class="padding">
+  <div class="box">
+    <div class="box-header">
+      <h2>Vistantes</h2>
+      <small>Estos son los visitantes actuales.</small>
+    </div>
+    <table class="table table-hover b-t">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th></th>
+          <th>Nombre</th>
+          <th>Alias</th>
+          <th>Procedencia</th>
+          <th>F.Nacimiento</th>
+          <th>Genero</th>
+          <th>Estatus</th>
+          <th>Ingreso</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="visitor in $storage.visitors">
+          <td ng-bind="visitor.id"></td>
+          <td>
+            <span class="avatar w-64">
+              <img ng-src="{{visitor.pictureDataURI}}" alt="...">
+            </span>
+          </td>
+          <td>{{visitor.firstName + " " + visitor.lastName + " " + visitor.secondSurename}}</td>
+          <td>{{visitor.alias}}</td>
+          <td>{{visitor.country + ", " + visitor.state + ", " + visitor.town}}</td>
+          <td>{{ visitor.birthdate | date: 'MMM d, y' }}</td>
+          <td>{{ visitor.gender}}</td>
+          <td>{{ visitor.status}}</td>
+          <td>{{visitor.createdAt | date: 'MMM d, y'}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <footer class="dker p-a">
+      <div class="row">
+        <div class="col-sm-4 hidden-xs">
+          <select class="input-sm form-control w-sm inline v-middle">
+            <option value="0">Exportar</option>
+          </select>
+          <button class="btn btn-sm white">Aplicar</button>
+        </div>
+        <div class="col-sm-4 text-center">
+          <small class="text-muted inline m-t-sm m-b-sm">mostrando {{$storage.visitors.length}} de 150 visitantes</small>
+        </div>
+        <div class="col-sm-4 text-right text-center-xs">
+          <ul class="pagination pagination-sm m-a-0">
+            <li><a href><i class="fa fa-chevron-left"></i></a></li>
+            <li class="active"><a href>1</a></li>
+            <li><a href>2</a></li>
+            <li><a href>3</a></li>
+            <li><a href>4</a></li>
+            <li><a href>5</a></li>
+            <li><a href><i class="fa fa-chevron-right"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
