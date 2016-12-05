@@ -23,62 +23,62 @@
       <div class="form-group row">
         <label class="col-sm-12 col-md-2 form-control-label">Nombre: </label>
         <div class="col-sm-12 col-md-10">
-          <input ng-model="visitor.firstName" class="form-control" type="text"/>
+          <input ng-model="visitor.firstName" class="form-control" type="text" required/>
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-12 col-md-2 form-control-label">Apellido Paterno: </label>
         <div class="col-sm-12 col-md-10">
-          <input ng-model="visitor.lastName" class="form-control" type="text"/>
+          <input ng-model="visitor.lastName" class="form-control" type="text" required/>
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-12 col-md-2 form-control-label">Apellido Materno: </label>
         <div class="col-sm-12 col-md-10">
-          <input ng-model="visitor.secondSurename" class="form-control" type="text"/>
+          <input ng-model="visitor.secondSurename" class="form-control" type="text" required/>
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-12 col-md-2 form-control-label">Alias: </label>
         <div class="col-sm-12 col-md-10">
-          <input ng-model="visitor.alias" class="form-control" type="text"/>
+          <input ng-model="visitor.alias" class="form-control" type="text" required/>
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-12 col-md-2 form-control-label">Pais: </label>
         <div class="col-sm-12 col-md-10">
-          <input ng-model="visitor.country" class="form-control" type="text"/>
+          <input ng-model="visitor.country" class="form-control" type="text" required/>
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-12 col-md-2 form-control-label">Estado: </label>
         <div class="col-sm-12 col-md-10">
-          <input ng-model="visitor.state" class="form-control" type="text"/>
+          <input ng-model="visitor.state" class="form-control" type="text" required/>
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-12 col-md-2 form-control-label">Municipio: </label>
         <div class="col-sm-12 col-md-10">
-          <input ng-model="visitor.town" class="form-control" type="text"/>
+          <input ng-model="visitor.town" class="form-control" type="text" required/>
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-12 col-md-2 form-control-label">F. de Nac.: </label>
         <div class="col-sm-12 col-md-10">
-          <input type="text" class="form-control" ng-model="visitor.birthdate" placeholder="yyyy-MM-dd" data-date-format="yyyy-MM-dd" data-min-date="01/01/1917" data-max-date="today" data-autoclose="1" name="date" bs-datepicker>
+          <input type="text" class="form-control" ng-model="visitor.birthdate" placeholder="yyyy-MM-dd" data-date-format="yyyy-MM-dd" data-min-date="01/01/1917" data-max-date="today" data-autoclose="1" name="date" bs-datepicker required>
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-12 col-md-2 form-control-label">Sexo: </label>
         <div class="col-sm-12 col-md-4" style="padding: .6rem;">
-          <select class="form-control" ng-model="visitor.gender">
+          <select class="form-control" ng-model="visitor.gender" required>
             <option value="masculino">Masculino</option>
             <option value="femenino">Femenino</option>
           </select>
         </div>
         <label class="col-sm-12 col-md-2 form-control-label">Estatus: </label>
         <div class="col-sm-12 col-md-4" style="padding: .6rem;">
-          <select class="form-control" ng-model="visitor.status">
+          <select class="form-control" ng-model="visitor.status" required>
             <option value="migrante">Migrante</option>
             <option value="otro">Otro</option>
           </select>
