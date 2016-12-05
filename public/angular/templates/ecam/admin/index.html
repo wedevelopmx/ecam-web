@@ -3,7 +3,7 @@
     <div ui-include="'angular/templates/ecam/admin/service-form.html'"></div>
   </div>
   <div class="row" ng-hide="showForm" style="position: relative;">
-    <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="service in $storage.services">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="service in $storage.services">
       <div class="box">
         <div class="item blue" style="padding: 3rem;">
           <a href=""><img ng-src="{{service.pictureDataURI}}" class="w-full"></a>

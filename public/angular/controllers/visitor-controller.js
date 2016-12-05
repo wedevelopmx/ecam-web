@@ -12,8 +12,12 @@ angular.module('app')
 
       $scope.today = new Date();
 
-      $scope.mark = function(service) {
-        service.used = !service.used;
+      $scope.selectService = function(service) {
+        $scope.iService = service;
+      }
+
+      $scope.serviceProvided = function() {
+        $scope.iService.used = !$scope.iService.used;
       }
 
       $scope.createVisit = function() {
@@ -24,5 +28,4 @@ angular.module('app')
           $scope.amountOfVisits = Object.keys($scope.visits).length;
         }
       }
-
   }]);
