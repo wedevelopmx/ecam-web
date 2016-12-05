@@ -79,5 +79,19 @@
 .vcenter {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.crafted {
+  padding-top: 2rem;
+  text-align: center;
+  span {
+    display: block;
+    color: #ffffff;
+    font-size: 0.8rem;
+  }
+  img {
+    width: 50%;
+  }
 }
