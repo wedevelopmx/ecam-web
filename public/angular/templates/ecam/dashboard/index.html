@@ -3,18 +3,41 @@
     <div class="col-sm-12 col-md-6">
       <div ui-include="'angular/templates/ecam/dashboard/visitor-list.html'"></div>
       <div ui-include="'angular/templates/ecam/dashboard/visitor-form.html'"></div>
-      <div class="btn-groups text-center p-b">
-        <a href="assets/download/came.apk" target="_blank" class="btn btn-lg black">
-          <span class="pull-left m-r-sm"><i class="fa  fa-cloud-download fa-2x"></i></span>
-          <span class="clear text-left l-h-1x">
-            <span class="text-muted text-xs">Download App</span>
-            <b class="text-md block m-b-xs">here</b>
-          </span>
-        </a>
-      </div>
     </div>
-    <div class="col-sm-12 col-md-6 hidden-sm-down">
-      <div class="box p-a">
+    <div class="col-sm-12 col-md-6">
+      <div class="box">
+        <div class="box-header info">
+          <h3>Bienvenido</h3>
+          <small>Este es nuestro demo para el Reto FM4</small>
+        </div>
+        <div class="box-body">
+          <p class="m-a-0">
+            Nuestro prototipo contiene los siguientes módulos:
+            <ul>
+              <li>Visitante: Este módulo permite visualizar a los inmigrantes que visitan el CAM, así como agregar nuevos visitantes incluyendo la captura de su foto con la cámara de tu dispositivo(laptop, smartphone, etc). Este módulo existe en versión web(a la izquierda) y en Android.</li>
+              <li>Administración: Este módulo permite crear nuevos servicios y clasificarlos o restringirlos al tipo de visitante(inmigrante o persona de la calle).</li>
+              <li>Estadisticas: Este modulo permite visualizar varios graficos que permiten tener una idea clara de los visitantes atendidos y los recursos consumidos, así como permitir transcribir información a REDODEM fácilmente.</li>
+            </ul>
+          </p>
+          <p class="m-a-0">
+            Te recomendamos visualizar el prototipo desde <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>  para poder hacer uso de tu cámara(para chrome necesitamos hacer algunos cambios que esperamos hacer en la siguiente fase ;).
+          </p>
+          <p class="m-a-0">
+            En el siguiente link puedes descargar nuestra App, la cual encapsula el módulo Visitante para Android.
+          </p>
+          <div class="btn-groups text-center p-t">
+            <a href="assets/download/came.apk" target="_blank" class="btn btn-lg black" style="width: 50%;">
+              <span class="pull-left m-r-sm"><i class="fa  fa-cloud-download fa-2x"></i></span>
+              <span class="clear text-left l-h-1x">
+                <span class="text-muted text-xs">Download App</span>
+                <b class="text-md block m-b-xs">here</b>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="box p-a hidden-sm-down">
         <div class="pull-left m-r">
           <span class="w-40 {{app.setting.theme.warn}} text-center rounded">
             <i class="material-icons">face</i>
@@ -26,7 +49,7 @@
         </div>
       </div>
 
-      <div class="box-color p-a {{app.setting.theme.warn}}">
+      <div class="box-color p-a {{app.setting.theme.warn}} hidden-sm-down">
         <div class="pull-left m-r">
           <span class="m-y-sm inline" ui-jp="sparkline" ui-options="[[2,8],[4,6],[6,4],[8,2],[10,0],[8,2],[6,4],[4,6],[2,8]], {type:'bar', height:24, barWidth:4, barSpacing:2, stackedBarColor:['#fff', 'rgba(255,255,255,0.2)']}"></span>
         </div>
@@ -36,7 +59,7 @@
         </div>
       </div>
 
-      <div class="box p-a">
+      <div class="box p-a hidden-sm-down">
         <div class="pull-left m-r">
           <span ui-jp="sparkline" ui-refresh="app.setting.color" ui-options="[40,60], {type:'pie', height:36, sliceColors:['{{app.color.light}}','{{app.setting.color.primary}}']}" class="sparkline inline"></span>
         </div>
